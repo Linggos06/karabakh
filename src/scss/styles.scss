@@ -103,6 +103,7 @@ a:hover {
 }
 ul li {
   list-style: none;
+  color: $white;
 }
 img {
   vertical-align: top;
@@ -371,3 +372,72 @@ width: 100%;
 height: 0;
 padding-top: math.div(1280, 1920) * 100%; 
 }
+
+.watch_conception {
+
+  & .section_cnt {
+    justify-content: flex-end;
+    margin-bottom: 0;
+    margin-top: 14%;
+    height: 100%;
+    width: 95%;
+  }
+
+  & .text {
+    flex: 0 1 93%;
+  }
+
+  & .sct-paragraph {
+    width: 75%;
+  }
+
+  & .watch_conception_img {
+background-image: url('../img/wristband1.png');     
+background-size: cover;    
+background-repeat: no-repeat;
+background-position: center;    
+width: 100%;   
+//height: 1000px;  
+//max-height: 1000px;
+//min-height: 100%;
+height: 0;
+padding-top: math.div(608, 1908) * 100%; 
+  }
+}
+
+.footer {
+
+  &_container {
+    padding: 90px 10px 90px 70px;
+  }
+
+  &_menu {
+    display: flex;
+    font-family: "HelveticaNeue", "Arial", sans-serif;
+    font-size: 20px;
+    line-height: 23px;
+    
+    & li:not(:first-child) {
+     padding: 0 30px;
+    }
+
+    & li:first-child {
+      padding-right: 30px;
+     }
+
+     & li:not(:last-child) {
+      border-right: 2px solid #ffffff;
+     }
+
+     & a {
+       color: $white;
+     }
+
+  }
+}
+
+
+
+
+
+
