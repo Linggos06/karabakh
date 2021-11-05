@@ -59,6 +59,7 @@ ul li{list-style: none;}
 img{vertical-align: top;}
 
 h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400; color: $white}
+p{color: $white;}
 
 .wrapper{
     max-width: 1270px;
@@ -68,9 +69,6 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400; color: $white}
     margin: 0 auto;
 }
 
-p {
-    color: $white;
-}
 
 .header {
     width: 100%;
@@ -110,6 +108,8 @@ p {
     }
 }
 
+// Hero section
+
 .hero_container {
     display: flex;
     justify-content: space-between;
@@ -118,8 +118,7 @@ p {
 .hero_container_left {
     flex: 0 1 50%;
     height: 100%;
-    margin-top: 15%;
-    
+    margin-top: 15%;  
 }
 
 .section_cnt {
