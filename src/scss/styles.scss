@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @mixin font($font_name, $file_name, $weight, $style) {
   @font-face {
     font-family: $font_name;
@@ -11,8 +13,23 @@
 
 @import "fonts";
 
+
 $black: #000000;
 $white: #ffffff;
+
+
+@mixin div-same-size-as-background-img($url) {     
+background-image: url($url);     
+background-size: cover;    
+background-repeat: no-repeat;
+background-position: center;    
+width: 100%;   
+//height: 1000px;  
+//max-height: 1000px;
+//min-height: 100%;
+height: 0;
+padding-top: math.div(1080, 1920) * 100%; 
+}
 
 * {
   padding: 0;
@@ -308,10 +325,11 @@ p {
 }
 
 .delivery_concept {
-  
+   margin-bottom: 100px;
+
   & .section_cnt {
     justify-content: flex-end;
-    margin-bottom: 160px;
+    margin-bottom: 0;
     height: 100%;
     width: 95%;
   }
@@ -323,4 +341,33 @@ p {
   & .sct-paragraph {
     width: 65%;
   }
+
+  & .slide {
+   @include div-same-size-as-background-img('../img/carousel_item.png');
+  }
+}
+
+.swiper-pagination {
+    height: 40px;  
+}
+
+.swiper-pagination-bullet {
+    background-color: rgb(223, 219, 219);  
+}
+
+.swiper-pagination-bullet-active{
+    background-color: $white;
+}
+
+.video_ {
+background-image: url('../img/video_sample.jpg');     
+background-size: cover;    
+background-repeat: no-repeat;
+background-position: center;    
+width: 100%;   
+//height: 1000px;  
+//max-height: 1000px;
+//min-height: 100%;
+height: 0;
+padding-top: math.div(1280, 1920) * 100%; 
 }

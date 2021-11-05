@@ -9,26 +9,27 @@ const swiper = new Swiper('.swiper', {
      enabled: true,
      sticky: true,
    },
- 
-    autoplay: {
-       delay: 5000,
-     },
     
     breakpoints: {
        // when window width is >= 320px
        320: {
-         slidesPerView: 1.3,
-         spaceBetween: 40
+         slidesPerView: 1,
        },
        // when window width is >= 605px
        605: {
-         slidesPerView: 2.3,
-         spaceBetween: 20
+         slidesPerView: 1,
        },
        // when window width is >= 993px
        993: {
-         slidesPerView: 3,
-         spaceBetween: 30
-       }
+         slidesPerView: 1,
+         spaceBetween: 30,
      }
+    },
+
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'bullets',
+      dynamicBullets: true,
+    },
+
   });
