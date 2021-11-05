@@ -1,0 +1,377 @@
+@font-face {
+  font-family: "Lavigne";
+  font-display: swap;
+  src: url("../fonts/Lavigne.woff") format("woff") url("../fonts/Lavigne.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "HelveticaNeue";
+  font-display: swap;
+  src: url("../fonts/HelveticaNeue.woff") format("woff") url("../fonts/HelveticaNeue.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus,
+:active {
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-family: "Lavigne", "Arial", sans-serif;
+  background-color: #000000;
+}
+
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.wrapper {
+  max-width: 1270px;
+  width: 100%;
+  height: 100%;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+p {
+  color: #ffffff;
+}
+
+.header {
+  width: 100%;
+  height: 170px;
+}
+
+.header .header_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 65%;
+  height: 100%;
+  padding-top: 41px;
+}
+
+.header .logo {
+  max-width: 250px;
+}
+
+.header .watch_and_book {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.header .links p {
+  font-size: 19px;
+  line-height: 25px;
+}
+
+.header .book_now {
+  text-transform: uppercase;
+  font-size: 19.7px;
+  line-height: 23.64px;
+  padding: 3px 30px 2px 6px;
+  margin-top: 13px;
+}
+
+.hero_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+}
+
+.hero_container_left {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 50%;
+          flex: 0 1 50%;
+  height: 100%;
+  margin-top: 15%;
+}
+
+.section_cnt {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 170px;
+}
+
+.section_cnt .section_cnt_header {
+  font-size: 68px;
+  line-height: 81px;
+}
+
+.section_cnt .hero_sct-paragraph {
+  font-size: 26px;
+  line-height: 31px;
+}
+
+.stripe {
+  width: 3px;
+  height: auto;
+}
+
+.victory_watch_stripe {
+  background-color: #001521;
+}
+
+.text {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 86%;
+          flex: 0 1 86%;
+}
+
+.text p {
+  word-wrap: break-word;
+  margin-top: 33px;
+}
+
+.limited_edition_stripe {
+  background-color: #BB0606;
+}
+
+.limited_edition_img {
+  height: 118px;
+  background-image: url("../img/hand-writing.png");
+  background-position: left;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.xxi_stripe {
+  background-color: #00190C;
+}
+
+.hero_img_watch {
+  position: relative;
+}
+
+.hero_img_watch img {
+  position: absolute;
+  top: -200px;
+  left: 0;
+  -webkit-transform: translateX(-95%);
+      -ms-transform: translateX(-95%);
+          transform: translateX(-95%);
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: left;
+     object-position: left;
+  z-index: 10;
+}
+
+.carpets {
+  background: url("../img/pattern.png") bottom center no-repeat;
+  background-size: cover;
+  width: 100%;
+  padding-top: 91px;
+  padding-bottom: 101px;
+}
+
+.carpets .carpets_container {
+  width: 83%;
+}
+
+.carpets .section_cnt {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin-bottom: 0;
+}
+
+.carpets .text {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 90%;
+          flex: 0 1 90%;
+}
+
+.carpets .text p {
+  margin-top: 38px;
+}
+
+.carpets h2 {
+  margin-left: -2px;
+}
+
+.sct-paragraph {
+  font-size: 30px;
+  line-height: 36px;
+}
+
+.karabakh .karabakh_sct_img {
+  width: 90%;
+  height: 896px;
+  background-image: url("../img/watch1.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-bottom: 101px;
+}
+
+.karabakh .img-btt {
+  background-image: url("../img/watch2.png");
+}
+
+.karabakh .section_cnt {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin-bottom: 160px;
+  height: 100%;
+  width: 95%;
+}
+
+.karabakh .text {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 93%;
+          flex: 0 1 93%;
+}
+
+.karabakh .karabakh_img {
+  height: 138px;
+  background-image: url("../img/karabach text.png");
+  background-position: left;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.karabakh p {
+  margin-top: 18px;
+  width: 70%;
+}
+
+.karabakh p + p {
+  margin-top: 32px;
+}
+
+.delivery_concept .section_cnt {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin-bottom: 160px;
+  height: 100%;
+  width: 95%;
+}
+
+.delivery_concept .text {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 93%;
+          flex: 0 1 93%;
+}
+
+.delivery_concept .sct-paragraph {
+  width: 65%;
+}
