@@ -187,6 +187,7 @@ p{color: $white;}
     z-index: 10;
 }
 
+
 .carpets {
     background: url("../img/pattern.png") bottom center no-repeat;
     background-size: cover;
@@ -206,8 +207,9 @@ p{color: $white;}
     & .text {
         flex: 0 1 90%; 
 
-        & p {
-            margin-top: 38px; 
+        & .sct-paragraph {
+            margin-top: 38px;
+            width: 85%; 
         }
     }
 
@@ -215,8 +217,6 @@ p{color: $white;}
         margin-left: -2px;
     }
 }
-
-
 
 .sct-paragraph {
     font-size: 30px;

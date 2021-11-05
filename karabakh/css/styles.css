@@ -298,8 +298,9 @@ p {
           flex: 0 1 90%;
 }
 
-.carpets .text p {
+.carpets .text .sct-paragraph {
   margin-top: 38px;
+  width: 85%;
 }
 
 .carpets h2 {
