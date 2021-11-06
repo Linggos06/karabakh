@@ -140,10 +140,11 @@ gulp.task("otf2ttf", function() {
   .pipe(dest(source_folder + "/fonts/"))
 })
 
-function fontsStyle(params) {
+function fontsStyle() {
 
   let file_content = fs.readFileSync(source_folder + '/scss/fonts.scss');
   if (file_content == '') {
+    console.log("yes");
   fs.writeFile(source_folder + '/scss/fonts.scss', '', cb);
   return fs.readdir(path.build.fonts, function (err, items) {
   if (items) {
@@ -174,7 +175,7 @@ function deleteDist () {
 return del(path.clean);
 }
 
-const build = gulp.series(deleteDist, gulp.parallel(js, css, html, images, fonts, swiper), gulp.parallel(browserSync, fontsStyle));
+const build = gulp.series(deleteDist, gulp.parallel(js, css, html, images, fonts, swiper), gulp.parallel(fontsStyle, browserSync));
 const watch = gulp.parallel(build, watchFiles);
 
 exports.fontsStyle = fontsStyle;
