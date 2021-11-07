@@ -9,11 +9,13 @@ const popup_btn = document.querySelector(".popup__button");
 const order_btn = document.querySelector(".book_now");
 const burger = document.querySelector('.icon_menu');
 const menu = document.querySelector('.watch_and_book');
+const close_on_mobile = document.querySelector(".close_on_mobile");
 
 popup_body.addEventListener("click", closePopup);
 order_btn.addEventListener('click', openPopup);
 popup_btn.addEventListener("click", closePopup);
 form.addEventListener('input', checkInput);
+close_on_mobile.addEventListener("click", closePopup);
 
 burger.addEventListener('click', (e)=>{
   burger.classList.toggle('active');
