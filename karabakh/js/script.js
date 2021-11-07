@@ -15,10 +15,24 @@ var form = document.querySelector("form");
 var inputs = document.querySelectorAll(".input");
 var popup_btn = document.querySelector(".popup__button");
 var order_btn = document.querySelector(".book_now");
+var burger = document.querySelector('.icon_menu');
+var menu = document.querySelector('.watch_and_book');
 popup_body.addEventListener("click", closePopup);
 order_btn.addEventListener('click', openPopup);
 popup_btn.addEventListener("click", closePopup);
 form.addEventListener('input', checkInput);
+burger.addEventListener('click', function (e) {
+  burger.classList.toggle('active');
+  menu.classList.toggle('active');
+
+  if (burger.classList.contains('active')) {
+    body.style.position = "fixed";
+    body.style.overflowY = "scroll";
+  } else {
+    body.style.position = "static";
+    body.style.overflowY = "visible";
+  }
+});
 
 function checkInput() {
   var disabled = false;
@@ -53,6 +67,8 @@ function checkInput() {
 ;
 
 function openPopup() {
+  burger.classList.remove("active");
+  menu.classList.remove('active');
   popup.classList.add("open");
   popup_btn.setAttribute("disabled", "disabled");
   document.body.style.position = "fixed";
@@ -138,20 +154,6 @@ function closePopup() {
   popup_btn.removeAttribute("disabled");
 }
 
-var burger = document.querySelector('.icon_menu');
-var menu = document.querySelector('.watch_and_book');
-burger.addEventListener('click', function (e) {
-  burger.classList.toggle('active');
-  menu.classList.toggle('active');
-
-  if (burger.classList.contains('active')) {
-    body.style.position = "fixed";
-    body.style.overflowY = "scroll";
-  } else {
-    body.style.position = "static";
-    body.style.overflowY = "visible";
-  }
-});
 var swiper = new Swiper('.swiper', {
   // Optional parameters
   direction: 'horizontal',

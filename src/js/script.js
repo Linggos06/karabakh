@@ -7,11 +7,25 @@ const form = document.querySelector("form");
 const inputs = document.querySelectorAll(".input");
 const popup_btn = document.querySelector(".popup__button");
 const order_btn = document.querySelector(".book_now");
+const burger = document.querySelector('.icon_menu');
+const menu = document.querySelector('.watch_and_book');
 
 popup_body.addEventListener("click", closePopup);
 order_btn.addEventListener('click', openPopup);
 popup_btn.addEventListener("click", closePopup);
 form.addEventListener('input', checkInput);
+
+burger.addEventListener('click', (e)=>{
+  burger.classList.toggle('active');
+  menu.classList.toggle('active');
+  if(burger.classList.contains('active')){
+    body.style.position = "fixed";
+    body.style.overflowY = "scroll";
+  }else{
+    body.style.position = "static";
+    body.style.overflowY = "visible";
+  }
+  });
 
 function checkInput() {
 
@@ -34,6 +48,8 @@ function checkInput() {
 };
 
 function openPopup(){
+  burger.classList.remove("active");
+  menu.classList.remove('active');
   popup.classList.add("open");
   popup_btn.setAttribute("disabled", "disabled");
   document.body.style.position = "fixed";
@@ -114,22 +130,6 @@ function closePopup () {
   window.scrollTo(0, parseInt(scrollY || "0") * -1);
   popup_btn.removeAttribute("disabled");
 }
-
-
-const burger = document.querySelector('.icon_menu');
-const menu = document.querySelector('.watch_and_book');
-
-burger.addEventListener('click', (e)=>{
-  burger.classList.toggle('active');
-  menu.classList.toggle('active');
-  if(burger.classList.contains('active')){
-    body.style.position = "fixed";
-    body.style.overflowY = "scroll";
-  }else{
-    body.style.position = "static";
-    body.style.overflowY = "visible";
-  }
-  });
 
 
 const swiper = new Swiper('.swiper', {

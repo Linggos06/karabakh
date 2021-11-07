@@ -13,21 +13,19 @@
 
 @import "fonts";
 
-
 $black: #000000;
 $white: #ffffff;
 $breakpoint-small_desktop: 992px;
 $breakpoint-tablet: 780px;
 
-
-@mixin div-same-size-as-background-img($url, $width, $height) {     
-background-image: url($url);     
-background-size: cover;    
-background-repeat: no-repeat;
-background-position: center;    
-width: 100%;   
-height: 0;
-padding-top: math.div($height, $width) * 100%; 
+@mixin div-same-size-as-background-img($url, $width, $height) {
+  background-image: url($url);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 0;
+  padding-top: math.div($height, $width) * 100%;
 }
 
 * {
@@ -73,7 +71,7 @@ body {
 body {
   display: flex;
   flex-direction: column;
-  font-family: 'Lora', serif;
+  font-family: "Lora", serif;
   background-color: $black;
 }
 
@@ -132,7 +130,6 @@ p {
 
 .header {
   width: 100%;
-  
 
   & .header_container {
     display: flex;
@@ -145,7 +142,13 @@ p {
 
     @media screen and (max-width: 1500px) {
       padding-top: 15px;
-  }
+    }
+    @media screen and (max-width: $breakpoint-tablet) {
+      width: 50%;
+    }
+    @media screen and (max-width: 500px) {
+      width: 65%;
+    }
   }
 
   & .header_logo {
@@ -153,12 +156,12 @@ p {
     min-width: 120px;
 
     & img {
-    max-width: 100%; 
+      max-width: 100%;
     }
 
     @media screen and (max-width: 1500px) {
       flex: 0 1 20%;
-  }
+    }
   }
 
   & .watch_and_book {
@@ -171,31 +174,30 @@ p {
 
     @media screen and (max-width: 1500px) {
       flex: 0 1 50%;
-  }
-  @media screen and (max-width: $breakpoint-small_desktop) {
-    flex: 0 1 60%;
-}
-@media screen and (max-width: $breakpoint-tablet) {
-  position: fixed;
-  width: 70%;
-  height: 100%;
-  overflow: auto;
-  top: 80px;
-  left: -100%;
-  transition: left 0.7s ease 0s;
-  padding: 70px 15px 30px 15px;
-  flex: 0 0 auto;
-  flex-direction: column;
-  justify-content: flex-start;
-  background-color: $black;
-  z-index: 15;
+    }
+    @media screen and (max-width: $breakpoint-small_desktop) {
+      flex: 0 1 60%;
+    }
+    @media screen and (max-width: $breakpoint-tablet) {
+      position: fixed;
+      width: 60%;
+      height: 100%;
+      overflow: auto;
+      top: 80px;
+      left: -100%;
+      transition: left 0.7s ease 0s;
+      padding: 70px 15px 30px 15px;
+      flex: 0 0 auto;
+      flex-direction: column;
+      justify-content: flex-start;
+      background-color: $black;
+      z-index: 15;
 
-&.active {
-  align-items: center;
-   left: 0;
-}
- 
-}
+      &.active {
+        align-items: center;
+        left: 0;
+      }
+    }
   }
 
   & .links p {
@@ -207,21 +209,22 @@ p {
     text-transform: uppercase;
     font-size: calc(16px + (19.7 - 16) * ((100vw - 320px) / (1500 - 320)));
     line-height: calc(18px + (23.64 - 18) * ((100vw - 320px) / (1500 - 320)));
-    padding: 3px 30px 2px 6px;
+    padding: 3px 15px 2px 15px;
     margin-top: 13px;
+    z-index: 20;
 
     @media screen and (max-width: $breakpoint-tablet) {
-      margin-top: 23px;  
+      margin-top: 23px;
     }
   }
- @media screen and (max-width: $breakpoint-small_desktop) {
+  @media screen and (max-width: $breakpoint-small_desktop) {
     justify-content: flex-end;
-} 
+  }
 }
 
 .icon_menu {
   display: none;
-  
+
   @media screen and (max-width: $breakpoint-tablet) {
     display: block;
     position: relative;
@@ -232,7 +235,7 @@ p {
     margin-left: 3%;
 
     & span {
-      transition: all 0.3s ease 0s; 
+      transition: all 0.3s ease 0s;
       position: absolute;
       top: calc(50% - 1px);
       left: 0px;
@@ -240,29 +243,28 @@ p {
       height: 2px;
       border-radius: 10px;
       background-color: $white;
-     &:first-child {
-         top: 0px;
-     }
-     &:last-child {
-      top: auto;
-      bottom: 0;
-  }
+      &:first-child {
+        top: 0px;
+      }
+      &:last-child {
+        top: auto;
+        bottom: 0;
+      }
     }
     &.active {
-        span {
-          transform: scale(0);
-          &:first-child {
-              transform: rotate(-45deg);
-              top: calc(50% - 1px);
-          }
-          &:last-child {
-              transform: rotate(45deg);
-              bottom: calc(50% - 1px);
-       }
+      span {
+        transform: scale(0);
+        &:first-child {
+          transform: rotate(-45deg);
+          top: calc(50% - 1px);
         }
-        
+        &:last-child {
+          transform: rotate(45deg);
+          bottom: calc(50% - 1px);
+        }
+      }
     }
-   }
+  }
 }
 
 // Hero section
@@ -285,7 +287,7 @@ p {
   margin-bottom: calc(50px + (85 - 50) * ((100vw - 320px) / (1920 - 320)));
 
   & .section_cnt_header {
-   font-size: calc(18px + (35 - 18) * ((100vw - 320px) / (1920 - 320)));
+    font-size: calc(18px + (35 - 18) * ((100vw - 320px) / (1920 - 320)));
     line-height: calc(22px + (42 - 22) * ((100vw - 320px) / (1920 - 320)));
   }
 
@@ -325,11 +327,7 @@ p {
 
   @media screen and (max-width: 1500px) {
     height: 78px;
-}
-@media screen and (max-width: $breakpoint-small_desktop) {
-  flex: 0 1 60%;
-}
-
+  }
 }
 
 .xxi_stripe {
@@ -337,18 +335,51 @@ p {
 }
 
 .hero_img_watch {
-  position: relative;
+  flex: 0 1 45%;
+   position: relative;
 }
 
 .hero_img_watch img {
   position: absolute;
-  top: -200px;
+  top: -170px;
   left: 0;
-  transform: translateX(-95%);
-  object-fit: cover;
-  object-position: left;
+  object-fit: contain;
+  object-position: center;
+  height: 1100px;
   z-index: 10;
-  display: none;
+  min-width: 100%;
+
+  @media screen and (min-width: 1800px) {
+    height: 1500px;
+  }
+  
+  @media screen and (min-width: 1600px) {
+    height: 1300px;
+  }
+
+  @media screen and (min-width: 1520px) {
+    top: -160px;
+  }
+
+  @media screen and (min-width: 1480px) {
+    height: 1200px;
+  }
+
+  @media screen and (min-width: 1350px) {
+    height: 1150px;
+  }
+
+  @media screen and (max-width: 1520px) {
+    top: -120px;
+  }
+
+  @media screen and (max-width: $breakpoint-tablet) {
+    top: -90px;
+  }
+
+  @media screen and (max-width: 500px) {
+    width: 80%;
+  }
 }
 
 .carpets {
@@ -369,12 +400,12 @@ p {
 
   & .section_cnt_header {
     font-size: calc(18px + (35 - 18) * ((100vw - 320px) / (1920 - 320)));
-     line-height: calc(22px + (42 - 22) * ((100vw - 320px) / (1920 - 320)));
-   }
+    line-height: calc(22px + (42 - 22) * ((100vw - 320px) / (1920 - 320)));
+  }
 
-   & h2 {
-     margin-left: -2px;
-   }
+  & h2 {
+    margin-left: -2px;
+  }
 
   & .text {
     flex: 0 1 90%;
@@ -383,10 +414,8 @@ p {
       word-wrap: break-word;
       margin-top: calc(10px + (27 - 10) * ((100vw - 320px) / (1920 - 320)));
       width: 85%;
-
     }
   }
- 
 }
 
 .sct-paragraph {
@@ -400,12 +429,12 @@ p {
   & .karabakh_sct_img {
     position: relative;
     left: -50px;
-    @include div-same-size-as-background-img('../img/watch1.png', 1344, 896);
+    @include div-same-size-as-background-img("../img/watch1.png", 1344, 896);
     margin-bottom: calc(30px + (101 - 30) * ((100vw - 320px) / (1920 - 320)));
   }
 
   & .img-btt {
-    @include div-same-size-as-background-img('../img/watch2.png', 1478, 986);
+    @include div-same-size-as-background-img("../img/watch2.png", 1478, 986);
   }
 
   & .section_cnt {
@@ -420,7 +449,11 @@ p {
   }
 
   & .karabakh_img {
-    @include div-same-size-as-background-img('../img/karabach\ text.png', 1095, 138);
+    @include div-same-size-as-background-img(
+      "../img/karabach\ text.png",
+      1095,
+      138
+    );
   }
 
   & p {
@@ -438,7 +471,7 @@ p {
 }
 
 .delivery_concept {
-   margin-bottom: calc(45px + (100 - 45) * ((100vw - 320px) / (1920 - 320)));
+  margin-bottom: calc(45px + (100 - 45) * ((100vw - 320px) / (1920 - 320)));
 
   & .section_cnt {
     justify-content: flex-end;
@@ -460,30 +493,37 @@ p {
   }
 
   & .slide {
-   @include div-same-size-as-background-img('../img/carousel_item.png', 1920, 1080);
+    @include div-same-size-as-background-img(
+      "../img/carousel_item.png",
+      1920,
+      1080
+    );
   }
 }
 
 .swiper-pagination {
   position: relative;
   top: 20%;
-    height: calc(12px + (40 - 12) * ((100vw - 320px) / (1920 - 320)))  
+  height: calc(12px + (40 - 12) * ((100vw - 320px) / (1920 - 320)));
 }
 
 .swiper-pagination-bullet {
-    background-color: rgb(223, 219, 219);  
+  background-color: rgb(223, 219, 219);
 }
 
-.swiper-pagination-bullet-active{
-    background-color: $white;
+.swiper-pagination-bullet-active {
+  background-color: $white;
 }
 
 .video_ {
-@include div-same-size-as-background-img('../img/video_sample.jpg', 1920, 1280);
+  @include div-same-size-as-background-img(
+    "../img/video_sample.jpg",
+    1920,
+    1280
+  );
 }
 
 .watch_conception {
-
   & .section_cnt {
     justify-content: flex-end;
     margin-bottom: 0;
@@ -501,13 +541,15 @@ p {
   }
 
   & .sct-paragraph {
-    width: 75%;
-
+    width: 65%;
   }
 
   & .watch_conception_img {
-    @include div-same-size-as-background-img('../img/wristband1.png', 1908, 608);
-
+    @include div-same-size-as-background-img(
+      "../img/wristband1.png",
+      1908,
+      608
+    );
   }
 }
 
@@ -519,10 +561,10 @@ p {
     padding-left: 65px;
 
     @media screen and (max-width: $breakpoint-tablet) {
-    padding-left: 40px;  
+      padding-left: 40px;
     }
     @media screen and (max-width: 450px) {
-      padding-left: 10px;  
+      padding-left: 10px;
     }
   }
 
@@ -531,34 +573,33 @@ p {
     font-family: "HelveticaNeue", "Arial", sans-serif;
     font-size: calc(14px + (20 - 14) * ((100vw - 320px) / (1920 - 320)));
     line-height: calc(16px + (23 - 16) * ((100vw - 320px) / (1920 - 320)));
-    
+
     & li:not(:first-child) {
-     padding-right: calc(10px + (30 - 10) * ((100vw - 320px) / (1920 - 320)));
-     padding-left: calc(10px + (30 - 10) * ((100vw - 320px) / (1920 - 320)));
-     padding-top: 0;
-     padding-bottom: 0;
+      padding-right: calc(10px + (30 - 10) * ((100vw - 320px) / (1920 - 320)));
+      padding-left: calc(10px + (30 - 10) * ((100vw - 320px) / (1920 - 320)));
+      padding-top: 0;
+      padding-bottom: 0;
     }
 
     & li:first-child {
       padding-right: calc(10px + (30 - 10) * ((100vw - 320px) / (1920 - 320)));
-     }
+    }
 
-     & li:not(:last-child) {
+    & li:not(:last-child) {
       border-right: 2px solid #ffffff;
-     }
+    }
 
-     & a {
-       color: $white;
-     }
+    & a {
+      color: $white;
+    }
 
-     @media screen and (max-width: $breakpoint-tablet) {
-      font-size: 14px;  
+    @media screen and (max-width: $breakpoint-tablet) {
+      font-size: 14px;
     }
 
     @media screen and (max-width: 450px) {
-      font-size: 10px;  
+      font-size: 10px;
     }
-
   }
 }
 
@@ -574,6 +615,7 @@ p {
   overflow-x: hidden;
   transition: all 0.8s ease 0s;
   visibility: hidden;
+  z-index: 50;
 }
 
 .popup.open {
@@ -588,10 +630,10 @@ p {
 }
 
 .popup__content {
-  position: absolute; 
+  position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); 
+  transform: translate(-50%, -50%);
   width: 50%;
   max-width: 500px;
   min-width: 310px;
@@ -611,7 +653,7 @@ p {
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
   height: 70px;
-  background-color: $black;  
+  background-color: $black;
 }
 
 .popup__title img {
@@ -629,9 +671,7 @@ p {
   flex-direction: column;
   justify-content: space-between;
   flex: 0 0 260px;
-  
 }
-
 
 .input_container {
   display: flex;
@@ -639,12 +679,12 @@ p {
 }
 
 .input_container input {
-padding: 10px;
-background-color: #ffffff;
-box-shadow: 0px 2px 30px rgba(0, 0, 0, 0.06);
-border-radius: 10px;
-outline: none;
-border: 1px solid #ffffff;
+  padding: 10px;
+  background-color: #ffffff;
+  box-shadow: 0px 2px 30px rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+  outline: none;
+  border: 1px solid #ffffff;
 }
 
 .input_container input:-webkit-autofill {
@@ -652,34 +692,33 @@ border: 1px solid #ffffff;
   box-shadow: 0 0 0px 1000px white inset;
 }
 
-
 .input__label {
-font-style: normal;
-font-weight: normal;
-font-size: 14px;
-line-height: 16px;
-text-transform: uppercase;
-color: #0D444D;
-margin-bottom: 8px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  text-transform: uppercase;
+  color: #0d444d;
+  margin-bottom: 8px;
 }
 
 .popup button {
-font-style: normal;
-font-weight: normal;
-font-size: 18px;
-line-height: 24px;
-letter-spacing: 0.1em;
-text-transform: uppercase;
-color: #C5E1E6;
-background-color: #111213;
-margin-top: 10px;
-margin-bottom: 10px; 
-padding-top: 15px;
-padding-bottom: 15px;
-border-radius: 100px;
-outline: none;
-border: none;
-cursor: pointer;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #c5e1e6;
+  background-color: #111213;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-radius: 100px;
+  outline: none;
+  border: none;
+  cursor: pointer;
 }
 
 small {
@@ -690,7 +729,7 @@ small {
   border: 1px solid #2ecc71;
 }
 
-.input_container.error .input{
+.input_container.error .input {
   border: 1px solid #e74c3c;
 }
 
@@ -703,11 +742,3 @@ body.popup_open {
   overflow-y: hidden;
   padding-right: 15px;
 }
-
-
-
-
-
-
-
-

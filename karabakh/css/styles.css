@@ -188,8 +188,9 @@ p {
   text-transform: uppercase;
   font-size: calc(16px + 3.7 * (100vw - 320px) / 1180);
   line-height: calc(18px + 5.64 * (100vw - 320px) / 1180);
-  padding: 3px 30px 2px 6px;
+  padding: 3px 15px 2px 15px;
   margin-top: 13px;
+  z-index: 20;
 }
 
 .icon_menu {
@@ -272,22 +273,23 @@ p {
 }
 
 .hero_img_watch {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 45%;
+          flex: 0 1 45%;
   position: relative;
 }
 
 .hero_img_watch img {
   position: absolute;
-  top: -200px;
+  top: -170px;
   left: 0;
-  -webkit-transform: translateX(-95%);
-      -ms-transform: translateX(-95%);
-          transform: translateX(-95%);
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: left;
-     object-position: left;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+  height: 1100px;
   z-index: 10;
-  display: none;
+  min-width: 100%;
 }
 
 .carpets {
@@ -468,7 +470,7 @@ p {
 }
 
 .watch_conception .sct-paragraph {
-  width: 75%;
+  width: 65%;
 }
 
 .watch_conception .watch_conception_img {
@@ -530,6 +532,7 @@ p {
   -o-transition: all 0.8s ease 0s;
   transition: all 0.8s ease 0s;
   visibility: hidden;
+  z-index: 50;
 }
 
 .popup.open {
@@ -644,7 +647,7 @@ p {
   font-size: 14px;
   line-height: 16px;
   text-transform: uppercase;
-  color: #0D444D;
+  color: #0d444d;
   margin-bottom: 8px;
 }
 
@@ -655,7 +658,7 @@ p {
   line-height: 24px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #C5E1E6;
+  color: #c5e1e6;
   background-color: #111213;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -687,6 +690,42 @@ small {
 body.popup_open {
   overflow-y: hidden;
   padding-right: 15px;
+}
+
+@media screen and (min-width: 1350px) {
+  .hero_img_watch img {
+    height: 1150px;
+  }
+}
+
+@media screen and (min-width: 1480px) {
+  .hero_img_watch img {
+    height: 1200px;
+  }
+}
+
+@media screen and (min-width: 1520px) {
+  .hero_img_watch img {
+    top: -160px;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .hero_img_watch img {
+    height: 1300px;
+  }
+}
+
+@media screen and (min-width: 1800px) {
+  .hero_img_watch img {
+    height: 1500px;
+  }
+}
+
+@media screen and (max-width: 1520px) {
+  .hero_img_watch img {
+    top: -120px;
+  }
 }
 
 @media screen and (max-width: 1500px) {
@@ -723,18 +762,16 @@ body.popup_open {
         -ms-flex-pack: end;
             justify-content: flex-end;
   }
-
-  .limited_edition_img {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 1 60%;
-            flex: 0 1 60%;
-  }
 }
 
 @media screen and (max-width: 780px) {
+  .header .header_container {
+    width: 50%;
+  }
+
   .header .watch_and_book {
     position: fixed;
-    width: 70%;
+    width: 60%;
     height: 100%;
     overflow: auto;
     top: 80px;
@@ -822,6 +859,10 @@ body.popup_open {
     bottom: calc(50% - 1px);
   }
 
+  .hero_img_watch img {
+    top: -90px;
+  }
+
   .footer_container {
     padding-left: 40px;
   }
@@ -842,6 +883,14 @@ body.popup_open {
 }
 
 @media screen and (max-width: 500px) {
+  .header .header_container {
+    width: 65%;
+  }
+
+  .hero_img_watch img {
+    width: 80%;
+  }
+
   .watch_conception .section_cnt {
     margin-bottom: 30px;
   }
