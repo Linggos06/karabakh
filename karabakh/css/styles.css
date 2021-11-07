@@ -338,24 +338,33 @@ p {
 }
 
 .karabakh .karabakh_sct_img {
-  width: 90%;
-  height: 896px;
+  position: relative;
+  left: -50px;
   background-image: url("../img/watch1.png");
-  background-position: center;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
-  margin-bottom: 101px;
+  background-position: center;
+  width: 100%;
+  height: 0;
+  padding-top: 66.6666666667%;
+  margin-bottom: calc(30px + 71 * (100vw - 320px) / 1600);
 }
 
 .karabakh .img-btt {
   background-image: url("../img/watch2.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 0;
+  padding-top: 66.7117726658%;
 }
 
 .karabakh .section_cnt {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  margin-bottom: 160px;
+  margin-bottom: calc(50px + 110 * (100vw - 320px) / 1600);
   height: 100%;
   width: 95%;
 }
@@ -367,11 +376,13 @@ p {
 }
 
 .karabakh .karabakh_img {
-  height: 138px;
   background-image: url("../img/karabach text.png");
-  background-position: left;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 0;
+  padding-top: 12.602739726%;
 }
 
 .karabakh p {
@@ -380,11 +391,11 @@ p {
 }
 
 .karabakh p + p {
-  margin-top: 32px;
+  margin-top: calc(15px + 17 * (100vw - 320px) / 1600);
 }
 
 .delivery_concept {
-  margin-bottom: 100px;
+  margin-bottom: calc(45px + 55 * (100vw - 320px) / 1600);
 }
 
 .delivery_concept .section_cnt {
@@ -417,7 +428,9 @@ p {
 }
 
 .swiper-pagination {
-  height: 40px;
+  position: relative;
+  top: 20%;
+  height: calc(12px + 28 * (100vw - 320px) / 1600);
 }
 
 .swiper-pagination-bullet {
@@ -443,7 +456,7 @@ p {
       -ms-flex-pack: end;
           justify-content: flex-end;
   margin-bottom: 0;
-  margin-top: 14%;
+  margin-top: calc(20px + 153 * (100vw - 320px) / 1600);
   height: 100%;
   width: 95%;
 }
@@ -815,6 +828,22 @@ body.popup_open {
 
   .footer_menu {
     font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .karabakh p {
+    width: 95%;
+  }
+
+  .delivery_concept .sct-paragraph {
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .watch_conception .section_cnt {
+    margin-bottom: 30px;
   }
 }
 

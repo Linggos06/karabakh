@@ -20,17 +20,14 @@ $breakpoint-small_desktop: 992px;
 $breakpoint-tablet: 780px;
 
 
-@mixin div-same-size-as-background-img($url) {     
+@mixin div-same-size-as-background-img($url, $width, $height) {     
 background-image: url($url);     
 background-size: cover;    
 background-repeat: no-repeat;
 background-position: center;    
 width: 100%;   
-//height: 1000px;  
-//max-height: 1000px;
-//min-height: 100%;
 height: 0;
-padding-top: math.div(1080, 1920) * 100%; 
+padding-top: math.div($height, $width) * 100%; 
 }
 
 * {
@@ -332,8 +329,7 @@ p {
 @media screen and (max-width: $breakpoint-small_desktop) {
   flex: 0 1 60%;
 }
-@media screen and (max-width: $breakpoint-tablet) {
-}
+
 }
 
 .xxi_stripe {
@@ -402,22 +398,19 @@ p {
 
 .karabakh {
   & .karabakh_sct_img {
-    width: 90%;
-    height: 896px;
-    background-image: url("../img/watch1.png");
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    margin-bottom: 101px;
+    position: relative;
+    left: -50px;
+    @include div-same-size-as-background-img('../img/watch1.png', 1344, 896);
+    margin-bottom: calc(30px + (101 - 30) * ((100vw - 320px) / (1920 - 320)));
   }
 
   & .img-btt {
-    background-image: url("../img/watch2.png");
+    @include div-same-size-as-background-img('../img/watch2.png', 1478, 986);
   }
 
   & .section_cnt {
     justify-content: flex-end;
-    margin-bottom: 160px;
+    margin-bottom: calc(50px + (160 - 50) * ((100vw - 320px) / (1920 - 320)));
     height: 100%;
     width: 95%;
   }
@@ -427,25 +420,25 @@ p {
   }
 
   & .karabakh_img {
-    height: 138px;
-    background-image: url("../img/karabach\ text.png");
-    background-position: left;
-    background-size: contain;
-    background-repeat: no-repeat;
+    @include div-same-size-as-background-img('../img/karabach\ text.png', 1095, 138);
   }
 
   & p {
     margin-top: 18px;
     width: 70%;
+
+    @media screen and (max-width: 550px) {
+      width: 95%;
+    }
   }
 
   & p + p {
-    margin-top: 32px;
+    margin-top: calc(15px + (32 - 15) * ((100vw - 320px) / (1920 - 320)));
   }
 }
 
 .delivery_concept {
-   margin-bottom: 100px;
+   margin-bottom: calc(45px + (100 - 45) * ((100vw - 320px) / (1920 - 320)));
 
   & .section_cnt {
     justify-content: flex-end;
@@ -460,15 +453,21 @@ p {
 
   & .sct-paragraph {
     width: 65%;
+
+    @media screen and (max-width: 550px) {
+      width: 95%;
+    }
   }
 
   & .slide {
-   @include div-same-size-as-background-img('../img/carousel_item.png');
+   @include div-same-size-as-background-img('../img/carousel_item.png', 1920, 1080);
   }
 }
 
 .swiper-pagination {
-    height: 40px;  
+  position: relative;
+  top: 20%;
+    height: calc(12px + (40 - 12) * ((100vw - 320px) / (1920 - 320)))  
 }
 
 .swiper-pagination-bullet {
@@ -480,16 +479,7 @@ p {
 }
 
 .video_ {
-background-image: url('../img/video_sample.jpg');     
-background-size: cover;    
-background-repeat: no-repeat;
-background-position: center;    
-width: 100%;   
-//height: 1000px;  
-//max-height: 1000px;
-//min-height: 100%;
-height: 0;
-padding-top: math.div(1280, 1920) * 100%; 
+@include div-same-size-as-background-img('../img/video_sample.jpg', 1920, 1280);
 }
 
 .watch_conception {
@@ -497,9 +487,13 @@ padding-top: math.div(1280, 1920) * 100%;
   & .section_cnt {
     justify-content: flex-end;
     margin-bottom: 0;
-    margin-top: 14%;
+    margin-top: calc(20px + (173 - 20) * ((100vw - 320px) / (1920 - 320)));
     height: 100%;
     width: 95%;
+
+    @media screen and (max-width: 500px) {
+      margin-bottom: 30px;
+    }
   }
 
   & .text {
@@ -508,19 +502,12 @@ padding-top: math.div(1280, 1920) * 100%;
 
   & .sct-paragraph {
     width: 75%;
+
   }
 
   & .watch_conception_img {
-background-image: url('../img/wristband1.png');     
-background-size: cover;    
-background-repeat: no-repeat;
-background-position: center;    
-width: 100%;   
-//height: 1000px;  
-//max-height: 1000px;
-//min-height: 100%;
-height: 0;
-padding-top: math.div(608, 1908) * 100%; 
+    @include div-same-size-as-background-img('../img/wristband1.png', 1908, 608);
+
   }
 }
 
