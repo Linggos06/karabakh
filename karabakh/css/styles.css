@@ -130,7 +130,6 @@ p {
 
 .header {
   width: 100%;
-  height: 170px;
 }
 
 .header .header_container {
@@ -140,22 +139,34 @@ p {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   width: 65%;
-  height: 100%;
+  max-height: 151px;
+  min-height: 70px;
   padding-top: 41px;
 }
 
-.header .logo {
-  max-width: 250px;
+.header .header_logo {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 40%;
+          flex: 0 1 40%;
+  min-width: 120px;
+}
+
+.header .header_logo img {
+  max-width: 100%;
 }
 
 .header .watch_and_book {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 50%;
+          flex: 0 1 50%;
+  height: 100%;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -169,16 +180,20 @@ p {
 }
 
 .header .links p {
-  font-size: 19px;
-  line-height: 25px;
+  font-size: calc(14px + 5 * (100vw - 320px) / 1180);
+  line-height: calc(18px + 7 * (100vw - 320px) / 1180);
 }
 
 .header .book_now {
   text-transform: uppercase;
-  font-size: 19.7px;
-  line-height: 23.64px;
+  font-size: calc(16px + 3.7 * (100vw - 320px) / 1180);
+  line-height: calc(18px + 5.64 * (100vw - 320px) / 1180);
   padding: 3px 30px 2px 6px;
   margin-top: 13px;
+}
+
+.icon_menu {
+  display: none;
 }
 
 .hero_container {
@@ -196,7 +211,7 @@ p {
       -ms-flex: 0 1 50%;
           flex: 0 1 50%;
   height: 100%;
-  margin-top: 15%;
+  margin-top: calc(50px + 66 * (100vw - 320px) / 1600);
 }
 
 .section_cnt {
@@ -207,17 +222,17 @@ p {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin-bottom: 170px;
+  margin-bottom: calc(50px + 35 * (100vw - 320px) / 1600);
 }
 
 .section_cnt .section_cnt_header {
-  font-size: 68px;
-  line-height: 81px;
+  font-size: calc(18px + 17 * (100vw - 320px) / 1600);
+  line-height: calc(22px + 20 * (100vw - 320px) / 1600);
 }
 
 .section_cnt .hero_sct-paragraph {
-  font-size: 26px;
-  line-height: 31px;
+  font-size: calc(14px + 6 * (100vw - 320px) / 1600);
+  line-height: calc(16px + 14 * (100vw - 320px) / 1600);
 }
 
 .stripe {
@@ -237,17 +252,17 @@ p {
 
 .text p {
   word-wrap: break-word;
-  margin-top: 33px;
+  margin-top: calc(10px + 17 * (100vw - 320px) / 1600);
 }
 
 .limited_edition_stripe {
-  background-color: #bb0606;
+  background-color: #b91f1f;
 }
 
 .limited_edition_img {
   height: 118px;
   background-image: url("../img/hand-writing.png");
-  background-position: left;
+  background-position: left bottom;
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -279,12 +294,12 @@ p {
   background: url("../img/pattern.png") bottom center no-repeat;
   background-size: cover;
   width: 100%;
-  padding-top: 91px;
-  padding-bottom: 101px;
+  padding-top: calc(20px + 81 * (100vw - 320px) / 1600);
+  padding-bottom: calc(30px + 91 * (100vw - 320px) / 1600);
 }
 
 .carpets .carpets_container {
-  width: 83%;
+  width: 70%;
 }
 
 .carpets .section_cnt {
@@ -294,6 +309,15 @@ p {
   margin-bottom: 0;
 }
 
+.carpets .section_cnt_header {
+  font-size: calc(18px + 17 * (100vw - 320px) / 1600);
+  line-height: calc(22px + 20 * (100vw - 320px) / 1600);
+}
+
+.carpets h2 {
+  margin-left: -2px;
+}
+
 .carpets .text {
   -webkit-box-flex: 0;
       -ms-flex: 0 1 90%;
@@ -301,17 +325,16 @@ p {
 }
 
 .carpets .text .sct-paragraph {
-  margin-top: 38px;
+  word-wrap: break-word;
+  margin-top: calc(10px + 17 * (100vw - 320px) / 1600);
   width: 85%;
-}
-
-.carpets h2 {
-  margin-left: -2px;
 }
 
 .sct-paragraph {
   font-size: 30px;
   line-height: 36px;
+  font-size: calc(14px + 6 * (100vw - 320px) / 1600);
+  line-height: calc(16px + 14 * (100vw - 320px) / 1600);
 }
 
 .karabakh .karabakh_sct_img {
@@ -446,24 +469,30 @@ p {
 }
 
 .footer_container {
-  padding: 90px 10px 90px 70px;
+  padding-top: 90px;
+  padding-bottom: calc(20px + 70 * (100vw - 320px) / 1600);
+  padding-right: 10px;
+  padding-left: 65px;
 }
 
 .footer_menu {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  font-family: "Helvetica";
-  font-size: 20px;
-  line-height: 23px;
+  font-family: "HelveticaNeue", "Arial", sans-serif;
+  font-size: calc(14px + 6 * (100vw - 320px) / 1600);
+  line-height: calc(16px + 7 * (100vw - 320px) / 1600);
 }
 
 .footer_menu li:not(:first-child) {
-  padding: 0 30px;
+  padding-right: calc(10px + 20 * (100vw - 320px) / 1600);
+  padding-left: calc(10px + 20 * (100vw - 320px) / 1600);
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .footer_menu li:first-child {
-  padding-right: 30px;
+  padding-right: calc(10px + 20 * (100vw - 320px) / 1600);
 }
 
 .footer_menu li:not(:last-child) {
@@ -493,6 +522,9 @@ p {
 .popup.open {
   visibility: visible;
   opacity: 1;
+  -webkit-transition: all 1.2s ease 0.2s;
+  -o-transition: all 1.2s ease 0.2s;
+  transition: all 1.2s ease 0.2s;
 }
 
 .popup__body {
@@ -516,6 +548,9 @@ p {
   border-top-left-radius: 22px;
   border-top-right-radius: 22px;
   border: 1px solid white;
+  -webkit-transition: all 0.8s ease 0s;
+  -o-transition: all 0.8s ease 0s;
+  transition: all 0.8s ease 0s;
 }
 
 .popup__title {
@@ -587,6 +622,7 @@ p {
 
 .input_container input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0px 1000px white inset;
+  box-shadow: 0 0 0px 1000px white inset;
 }
 
 .input__label {
@@ -638,4 +674,156 @@ small {
 body.popup_open {
   overflow-y: hidden;
   padding-right: 15px;
+}
+
+@media screen and (max-width: 1500px) {
+  .header .header_container {
+    padding-top: 15px;
+  }
+
+  .header .header_logo {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 20%;
+            flex: 0 1 20%;
+  }
+
+  .header .watch_and_book {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 50%;
+            flex: 0 1 50%;
+  }
+
+  .limited_edition_img {
+    height: 78px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .header .watch_and_book {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 60%;
+            flex: 0 1 60%;
+  }
+
+  .header {
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+
+  .limited_edition_img {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 60%;
+            flex: 0 1 60%;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .header .watch_and_book {
+    position: fixed;
+    width: 70%;
+    height: 100%;
+    overflow: auto;
+    top: 80px;
+    left: -100%;
+    -webkit-transition: left 0.7s ease 0s;
+    -o-transition: left 0.7s ease 0s;
+    transition: left 0.7s ease 0s;
+    padding: 70px 15px 30px 15px;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    background-color: #000000;
+    z-index: 15;
+  }
+
+  .header .watch_and_book.active {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    left: 0;
+  }
+
+  .header .book_now {
+    margin-top: 23px;
+  }
+
+  .icon_menu {
+    display: block;
+    position: relative;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 30px;
+            flex: 0 0 30px;
+    height: 18px;
+    cursor: pointer;
+    z-index: 10;
+    margin-left: 3%;
+  }
+
+  .icon_menu span {
+    -webkit-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    position: absolute;
+    top: calc(50% - 1px);
+    left: 0px;
+    width: 100%;
+    height: 2px;
+    border-radius: 10px;
+    background-color: #ffffff;
+  }
+
+  .icon_menu span:first-child {
+    top: 0px;
+  }
+
+  .icon_menu span:last-child {
+    top: auto;
+    bottom: 0;
+  }
+
+  .icon_menu.active span {
+    -webkit-transform: scale(0);
+        -ms-transform: scale(0);
+            transform: scale(0);
+  }
+
+  .icon_menu.active span:first-child {
+    -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+    top: calc(50% - 1px);
+  }
+
+  .icon_menu.active span:last-child {
+    -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+    bottom: calc(50% - 1px);
+  }
+
+  .footer_container {
+    padding-left: 40px;
+  }
+
+  .footer_menu {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .footer_container {
+    padding-left: 10px;
+  }
+
+  .footer_menu {
+    font-size: 10px;
+  }
 }

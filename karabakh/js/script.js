@@ -56,6 +56,7 @@ function openPopup() {
   popup.classList.add("open");
   popup_btn.setAttribute("disabled", "disabled");
   document.body.style.position = "fixed";
+  body.style.overflowY = "scroll";
   document.body.style.top = "-".concat(window.scrollY, "px");
 }
 
@@ -130,12 +131,27 @@ function closePopup() {
   });
   popup.classList.remove("open");
   var scrollY = document.body.style.top;
-  document.body.style.position = "";
+  body.style.position = "static";
+  body.style.overflowY = "visible";
   document.body.style.top = "";
   window.scrollTo(0, parseInt(scrollY || "0") * -1);
   popup_btn.removeAttribute("disabled");
 }
 
+var burger = document.querySelector('.icon_menu');
+var menu = document.querySelector('.watch_and_book');
+burger.addEventListener('click', function (e) {
+  burger.classList.toggle('active');
+  menu.classList.toggle('active');
+
+  if (burger.classList.contains('active')) {
+    body.style.position = "fixed";
+    body.style.overflowY = "scroll";
+  } else {
+    body.style.position = "static";
+    body.style.overflowY = "visible";
+  }
+});
 var swiper = new Swiper('.swiper', {
   // Optional parameters
   direction: 'horizontal',

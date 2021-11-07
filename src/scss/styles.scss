@@ -16,6 +16,8 @@
 
 $black: #000000;
 $white: #ffffff;
+$breakpoint-small_desktop: 992px;
+$breakpoint-tablet: 780px;
 
 
 @mixin div-same-size-as-background-img($url) {     
@@ -133,40 +135,137 @@ p {
 
 .header {
   width: 100%;
-  height: 170px;
+  
 
   & .header_container {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
     width: 65%;
-    height: 100%;
+    max-height: 151px;
+    min-height: 70px;
     padding-top: 41px;
+
+    @media screen and (max-width: 1500px) {
+      padding-top: 15px;
+  }
   }
 
-  & .logo {
-    max-width: 250px;
+  & .header_logo {
+    flex: 0 1 40%;
+    min-width: 120px;
+
+    & img {
+    max-width: 100%; 
+    }
+
+    @media screen and (max-width: 1500px) {
+      flex: 0 1 20%;
+  }
   }
 
   & .watch_and_book {
     display: flex;
+    flex: 0 1 50%;
+    height: 100%;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
+
+    @media screen and (max-width: 1500px) {
+      flex: 0 1 50%;
+  }
+  @media screen and (max-width: $breakpoint-small_desktop) {
+    flex: 0 1 60%;
+}
+@media screen and (max-width: $breakpoint-tablet) {
+  position: fixed;
+  width: 70%;
+  height: 100%;
+  overflow: auto;
+  top: 80px;
+  left: -100%;
+  transition: left 0.7s ease 0s;
+  padding: 70px 15px 30px 15px;
+  flex: 0 0 auto;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: $black;
+  z-index: 15;
+
+&.active {
+  align-items: center;
+   left: 0;
+}
+ 
+}
   }
 
   & .links p {
-    font-size: 19px;
-    line-height: 25px;
+    font-size: calc(14px + (19 - 14) * ((100vw - 320px) / (1500 - 320)));
+    line-height: calc(18px + (25 - 18) * ((100vw - 320px) / (1500 - 320)));
   }
 
   & .book_now {
     text-transform: uppercase;
-    font-size: 19.7px;
-    line-height: 23.64px;
+    font-size: calc(16px + (19.7 - 16) * ((100vw - 320px) / (1500 - 320)));
+    line-height: calc(18px + (23.64 - 18) * ((100vw - 320px) / (1500 - 320)));
     padding: 3px 30px 2px 6px;
     margin-top: 13px;
+
+    @media screen and (max-width: $breakpoint-tablet) {
+      margin-top: 23px;  
+    }
   }
+ @media screen and (max-width: $breakpoint-small_desktop) {
+    justify-content: flex-end;
+} 
+}
+
+.icon_menu {
+  display: none;
+  
+  @media screen and (max-width: $breakpoint-tablet) {
+    display: block;
+    position: relative;
+    flex: 0 0 30px;
+    height: 18px;
+    cursor: pointer;
+    z-index: 10;
+    margin-left: 3%;
+
+    & span {
+      transition: all 0.3s ease 0s; 
+      position: absolute;
+      top: calc(50% - 1px);
+      left: 0px;
+      width: 100%;
+      height: 2px;
+      border-radius: 10px;
+      background-color: $white;
+     &:first-child {
+         top: 0px;
+     }
+     &:last-child {
+      top: auto;
+      bottom: 0;
+  }
+    }
+    &.active {
+        span {
+          transform: scale(0);
+          &:first-child {
+              transform: rotate(-45deg);
+              top: calc(50% - 1px);
+          }
+          &:last-child {
+              transform: rotate(45deg);
+              bottom: calc(50% - 1px);
+       }
+        }
+        
+    }
+   }
 }
 
 // Hero section
@@ -179,23 +278,23 @@ p {
 .hero_container_left {
   flex: 0 1 50%;
   height: 100%;
-  margin-top: 15%;
+  margin-top: calc(50px + (116 - 50) * ((100vw - 320px) / (1920 - 320)));
 }
 
 .section_cnt {
   display: flex;
   width: 100%;
   justify-content: space-between;
-  margin-bottom: 170px;
+  margin-bottom: calc(50px + (85 - 50) * ((100vw - 320px) / (1920 - 320)));
 
   & .section_cnt_header {
-    font-size: 68px;
-    line-height: 81px;
+   font-size: calc(18px + (35 - 18) * ((100vw - 320px) / (1920 - 320)));
+    line-height: calc(22px + (42 - 22) * ((100vw - 320px) / (1920 - 320)));
   }
 
   & .hero_sct-paragraph {
-    font-size: 26px;
-    line-height: 31px;
+    font-size: calc(14px + (20 - 14) * ((100vw - 320px) / (1920 - 320)));
+    line-height: calc(16px + (30 - 16) * ((100vw - 320px) / (1920 - 320)));
   }
 }
 
@@ -212,20 +311,29 @@ p {
 
   & p {
     word-wrap: break-word;
-    margin-top: 33px;
+    margin-top: calc(10px + (27 - 10) * ((100vw - 320px) / (1920 - 320)));
   }
 }
 
 .limited_edition_stripe {
-  background-color: #bb0606;
+  background-color: #b91f1f;
 }
 
 .limited_edition_img {
   height: 118px;
   background-image: url("../img/hand-writing.png");
-  background-position: left;
+  background-position: left bottom;
   background-size: contain;
   background-repeat: no-repeat;
+
+  @media screen and (max-width: 1500px) {
+    height: 78px;
+}
+@media screen and (max-width: $breakpoint-small_desktop) {
+  flex: 0 1 60%;
+}
+@media screen and (max-width: $breakpoint-tablet) {
+}
 }
 
 .xxi_stripe {
@@ -251,11 +359,11 @@ p {
   background: url("../img/pattern.png") bottom center no-repeat;
   background-size: cover;
   width: 100%;
-  padding-top: 91px;
-  padding-bottom: 101px;
+  padding-top: calc(20px + (91 - 10) * ((100vw - 320px) / (1920 - 320)));
+  padding-bottom: calc(30px + (101 - 10) * ((100vw - 320px) / (1920 - 320)));
 
   & .carpets_container {
-    width: 83%;
+    width: 70%;
   }
 
   & .section_cnt {
@@ -263,23 +371,33 @@ p {
     margin-bottom: 0;
   }
 
+  & .section_cnt_header {
+    font-size: calc(18px + (35 - 18) * ((100vw - 320px) / (1920 - 320)));
+     line-height: calc(22px + (42 - 22) * ((100vw - 320px) / (1920 - 320)));
+   }
+
+   & h2 {
+     margin-left: -2px;
+   }
+
   & .text {
     flex: 0 1 90%;
 
     & .sct-paragraph {
-      margin-top: 38px;
+      word-wrap: break-word;
+      margin-top: calc(10px + (27 - 10) * ((100vw - 320px) / (1920 - 320)));
       width: 85%;
+
     }
   }
-
-  & h2 {
-    margin-left: -2px;
-  }
+ 
 }
 
 .sct-paragraph {
   font-size: 30px;
   line-height: 36px;
+  font-size: calc(14px + (20 - 14) * ((100vw - 320px) / (1920 - 320)));
+  line-height: calc(16px + (30 - 16) * ((100vw - 320px) / (1920 - 320)));
 }
 
 .karabakh {
@@ -407,24 +525,35 @@ padding-top: math.div(608, 1908) * 100%;
 }
 
 .footer {
-
   &_container {
-    padding: 90px 10px 90px 70px;
+    padding-top: 90px;
+    padding-bottom: calc(20px + (90 - 20) * ((100vw - 320px) / (1920 - 320)));
+    padding-right: 10px;
+    padding-left: 65px;
+
+    @media screen and (max-width: $breakpoint-tablet) {
+    padding-left: 40px;  
+    }
+    @media screen and (max-width: 450px) {
+      padding-left: 10px;  
+    }
   }
 
   &_menu {
     display: flex;
-    //font-family: "Helvetica", "Arial", sans-serif;
-    font-family: "Helvetica";
-    font-size: 20px;
-    line-height: 23px;
+    font-family: "HelveticaNeue", "Arial", sans-serif;
+    font-size: calc(14px + (20 - 14) * ((100vw - 320px) / (1920 - 320)));
+    line-height: calc(16px + (23 - 16) * ((100vw - 320px) / (1920 - 320)));
     
     & li:not(:first-child) {
-     padding: 0 30px;
+     padding-right: calc(10px + (30 - 10) * ((100vw - 320px) / (1920 - 320)));
+     padding-left: calc(10px + (30 - 10) * ((100vw - 320px) / (1920 - 320)));
+     padding-top: 0;
+     padding-bottom: 0;
     }
 
     & li:first-child {
-      padding-right: 30px;
+      padding-right: calc(10px + (30 - 10) * ((100vw - 320px) / (1920 - 320)));
      }
 
      & li:not(:last-child) {
@@ -434,6 +563,14 @@ padding-top: math.div(608, 1908) * 100%;
      & a {
        color: $white;
      }
+
+     @media screen and (max-width: $breakpoint-tablet) {
+      font-size: 14px;  
+    }
+
+    @media screen and (max-width: 450px) {
+      font-size: 10px;  
+    }
 
   }
 }
@@ -455,6 +592,7 @@ padding-top: math.div(608, 1908) * 100%;
 .popup.open {
   visibility: visible;
   opacity: 1;
+  transition: all 1.2s ease 0.2s;
 }
 
 .popup__body {
@@ -476,6 +614,7 @@ padding-top: math.div(608, 1908) * 100%;
   border-top-left-radius: 22px;
   border-top-right-radius: 22px;
   border: 1px solid white;
+  transition: all 0.8s ease 0s;
 }
 
 .popup__title {
@@ -496,8 +635,6 @@ padding-top: math.div(608, 1908) * 100%;
   display: flex;
   flex-direction: column;
   padding: 32px 50px 46px;
-  //flex: 0 0 300px;
-  //height: 500px;
 }
 
 .popup__form form {
@@ -525,6 +662,7 @@ border: 1px solid #ffffff;
 
 .input_container input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0px 1000px white inset;
+  box-shadow: 0 0 0px 1000px white inset;
 }
 
 
