@@ -10,6 +10,8 @@ const order_btn = document.querySelector(".book_now");
 const burger = document.querySelector('.icon_menu');
 const menu = document.querySelector('.watch_and_book');
 const close_on_mobile = document.querySelector(".close_on_mobile");
+const carpets_background = document.querySelector(".carpets_background")
+const blocks = document.querySelectorAll(".blocks");
 
 popup_body.addEventListener("click", closePopup);
 order_btn.addEventListener('click', openPopup);
@@ -169,3 +171,57 @@ const swiper = new Swiper('.swiper', {
     },
 
   });
+
+
+  const animItems = document.querySelectorAll(".anim_item");
+
+
+if(animItems.length > 0) {
+    window.addEventListener("scroll", animOnScroll);
+   setTimeout(() => {
+        animOnScroll();  
+    }, 500);    
+}
+
+function animOnScroll() {
+     
+    for(let i = 0; i < animItems.length; i++) {
+        let anim_item = animItems[i];
+        const animItemHeight = anim_item.offsetHeight;
+        const animItemOffset = offset(anim_item).top;
+        const animStart = 4;
+
+        let animItemPoint = window.innerHeight - animItemHeight / animStart;
+
+        if(animItemHeight > window.innerHeight) {
+            animItemPoint = window.innerHeight - window.innerHeight / animStart;
+        }
+
+        if((pageYOffset > animItemOffset - animItemPoint) && pageYOffset < (animItemOffset + animItemHeight)) {
+            anim_item.classList.add("animated");
+
+        }else{
+            if(!anim_item.classList.contains("anim_no_hide")){
+                 anim_item.classList.remove("animated"); 
+             }
+            
+        }
+    }
+}
+
+function offset(el) {
+    const rect = el.getBoundingClientRect();
+    const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    return {
+        top: rect.top + scrollTop,
+        left: rect.left + scrollLeft
+    }
+}
+
+for(let i = 1; i < 500; i++) {
+  const block = document.createElement('div');
+  block.classList.add('blocks');
+  carpets_background.appendChild(block);
+  block.style.animationDelay = `${i * 0.05}s`;
+}

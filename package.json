@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Karabakh watch website",
   "main": "index.html",
+  "homepage": "http://Linggos06.github.io/karabakh",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,6 +14,7 @@
     "@babel/preset-env": "^7.15.6",
     "browser-sync": "^2.27.5",
     "del": "^6.0.0",
+    "gh-pages": "^3.2.3",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-babel": "^8.0.0",

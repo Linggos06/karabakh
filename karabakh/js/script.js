@@ -18,6 +18,8 @@ var order_btn = document.querySelector(".book_now");
 var burger = document.querySelector('.icon_menu');
 var menu = document.querySelector('.watch_and_book');
 var close_on_mobile = document.querySelector(".close_on_mobile");
+var carpets_background = document.querySelector(".carpets_background");
+var blocks = document.querySelectorAll(".blocks");
 popup_body.addEventListener("click", closePopup);
 order_btn.addEventListener('click', openPopup);
 popup_btn.addEventListener("click", closePopup);
@@ -187,3 +189,50 @@ var swiper = new Swiper('.swiper', {
     dynamicBullets: true
   }
 });
+var animItems = document.querySelectorAll(".anim_item");
+
+if (animItems.length > 0) {
+  window.addEventListener("scroll", animOnScroll);
+  setTimeout(function () {
+    animOnScroll();
+  }, 500);
+}
+
+function animOnScroll() {
+  for (var i = 0; i < animItems.length; i++) {
+    var anim_item = animItems[i];
+    var animItemHeight = anim_item.offsetHeight;
+    var animItemOffset = offset(anim_item).top;
+    var animStart = 4;
+    var animItemPoint = window.innerHeight - animItemHeight / animStart;
+
+    if (animItemHeight > window.innerHeight) {
+      animItemPoint = window.innerHeight - window.innerHeight / animStart;
+    }
+
+    if (pageYOffset > animItemOffset - animItemPoint && pageYOffset < animItemOffset + animItemHeight) {
+      anim_item.classList.add("animated");
+    } else {
+      if (!anim_item.classList.contains("anim_no_hide")) {
+        anim_item.classList.remove("animated");
+      }
+    }
+  }
+}
+
+function offset(el) {
+  var rect = el.getBoundingClientRect();
+  var scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+  var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  return {
+    top: rect.top + scrollTop,
+    left: rect.left + scrollLeft
+  };
+}
+
+for (var i = 1; i < 500; i++) {
+  var block = document.createElement('div');
+  block.classList.add('blocks');
+  carpets_background.appendChild(block);
+  block.style.animationDelay = "".concat(i * 0.05, "s");
+}

@@ -191,6 +191,15 @@ p {
   padding: 3px 15px 2px 15px;
   margin-top: 13px;
   z-index: 20;
+  -webkit-transition: all 0.8s ease-in-out 0.2s;
+  -o-transition: all 0.8s ease-in-out 0.2s;
+  transition: all 0.8s ease-in-out 0.2s;
+}
+
+.header .book_now:hover {
+  outline: 1px solid #ffffff;
+  background-color: #000000;
+  color: #ffffff;
 }
 
 .icon_menu {
@@ -229,16 +238,55 @@ p {
 .section_cnt .section_cnt_header {
   font-size: calc(18px + 17 * (100vw - 320px) / 1600);
   line-height: calc(22px + 20 * (100vw - 320px) / 1600);
+  opacity: 0;
+}
+
+.section_cnt .section_cnt_header.animated,
+.animated .section_cnt .section_cnt_header {
+  -webkit-animation-duration: 1.2s;
+          animation-duration: 1.2s;
+  -webkit-animation-name: slideInRight;
+          animation-name: slideInRight;
+  opacity: 1;
 }
 
 .section_cnt .hero_sct-paragraph {
   font-size: calc(14px + 6 * (100vw - 320px) / 1600);
   line-height: calc(16px + 14 * (100vw - 320px) / 1600);
+  -webkit-transform: translateX(-300px);
+      -ms-transform: translateX(-300px);
+          transform: translateX(-300px);
+  opacity: 0;
+  -webkit-transition: all 1.2s ease-in-out 0.3s;
+  -o-transition: all 1.2s ease-in-out 0.3s;
+  transition: all 1.2s ease-in-out 0.3s;
+}
+
+.section_cnt .hero_sct-paragraph.animated {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
 }
 
 .stripe {
   width: 3px;
   height: auto;
+  -webkit-transform: translateX(-300px);
+      -ms-transform: translateX(-300px);
+          transform: translateX(-300px);
+  opacity: 0;
+  -webkit-transition: all 1.5s ease-in-out 0.8s;
+  -o-transition: all 1.5s ease-in-out 0.8s;
+  transition: all 1.5s ease-in-out 0.8s;
+}
+
+.stripe.animated,
+.animated .stripe {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
 }
 
 .victory_watch_stripe {
@@ -266,6 +314,20 @@ p {
   background-position: left bottom;
   background-size: contain;
   background-repeat: no-repeat;
+  -webkit-transform: translateX(-300px);
+      -ms-transform: translateX(-300px);
+          transform: translateX(-300px);
+  opacity: 0;
+  -webkit-transition: all 1.2s ease-in-out 0.3s;
+  -o-transition: all 1.2s ease-in-out 0.3s;
+  transition: all 1.2s ease-in-out 0.3s;
+}
+
+.limited_edition_img.animated {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
 }
 
 .xxi_stripe {
@@ -277,6 +339,16 @@ p {
       -ms-flex: 0 1 45%;
           flex: 0 1 45%;
   position: relative;
+  opacity: 0;
+}
+
+.hero_img_watch.animated,
+.animated .hero_img_watch {
+  -webkit-animation-duration: 8.5s;
+          animation-duration: 8.5s;
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
+  opacity: 1;
 }
 
 .hero_img_watch img {
@@ -293,30 +365,72 @@ p {
 }
 
 .carpets {
-  background: url("../img/pattern.png") bottom center no-repeat;
-  background-size: cover;
-  width: 100%;
+  position: relative;
+  height: 300px;
   padding-top: calc(20px + 81 * (100vw - 320px) / 1600);
   padding-bottom: calc(30px + 91 * (100vw - 320px) / 1600);
 }
 
+.carpets .carpets_background {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carpets .carpets_background .blocks {
+  position: relative;
+  display: block;
+  width: 3vw;
+  height: 3vw;
+}
+
+.carpets .carpets_background .blocks.animated,
+.animated .carpets .carpets_background .blocks {
+  -webkit-animation: animate 0.75s ease-in-out forwards;
+          animation: animate 0.75s ease-in-out forwards;
+}
+
+.carpets .carpets_background .blocks:nth-child(even) {
+  -webkit-animation: animate 0.8s ease-in-out forwards;
+          animation: animate 0.8s ease-in-out forwards;
+}
+
+.carpets .carpets_background .blocks:nth-child(odd) {
+  -webkit-animation: animate 1s ease-in-out forwards;
+          animation: animate 1s ease-in-out forwards;
+}
+
 .carpets .carpets_container {
+  position: relative;
   width: 70%;
+  height: 100%;
+  z-index: 25;
 }
 
 .carpets .section_cnt {
+  position: absolute;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
   margin-bottom: 0;
 }
 
-.carpets .section_cnt_header {
+.carpets .carpets_section_cnt_header {
   font-size: calc(18px + 17 * (100vw - 320px) / 1600);
   line-height: calc(22px + 20 * (100vw - 320px) / 1600);
 }
 
-.carpets h2 {
+.carpets .carpets_section_cnt_header h2 {
+  color: #ffffff;
   margin-left: -2px;
 }
 
@@ -350,6 +464,14 @@ p {
   height: 0;
   padding-top: 66.6666666667%;
   margin-bottom: calc(30px + 71 * (100vw - 320px) / 1600);
+  opacity: 0;
+  -webkit-transition: opacity 5.5s ease-in-out;
+  -o-transition: opacity 5.5s ease-in-out;
+  transition: opacity 5.5s ease-in-out;
+}
+
+.karabakh .karabakh_sct_img.animated {
+  opacity: 1;
 }
 
 .karabakh .img-btt {
@@ -483,6 +605,15 @@ p {
   padding-top: 31.8658280922%;
 }
 
+.watch_conception .watch_conception_img.animated,
+.animated .watch_conception .watch_conception_img {
+  -webkit-animation-duration: 10.5s;
+          animation-duration: 10.5s;
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
+  opacity: 1;
+}
+
 .footer_container {
   padding-top: 90px;
   padding-bottom: calc(20px + 70 * (100vw - 320px) / 1600);
@@ -515,7 +646,17 @@ p {
 }
 
 .footer_menu a {
+  display: inline-block;
   color: #ffffff;
+  -webkit-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.footer_menu a:hover {
+  -webkit-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+          transform: scale(1.05);
 }
 
 .popup {
@@ -696,6 +837,98 @@ body.popup_open {
   padding-right: 15px;
 }
 
+@-webkit-keyframes slideInRight {
+  0% {
+    -webkit-transform: translate3d(-200px, 0, 0);
+            transform: translate3d(-200px, 0, 0);
+  }
+
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    -webkit-transform: translate3d(-200px, 0, 0);
+            transform: translate3d(-200px, 0, 0);
+  }
+
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes animate {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0) translateY(1000px);
+            transform: scale(0) translateY(1000px);
+  }
+
+  50% {
+    opacity: 1;
+    background: url("../img/pattern.png");
+    background-position: center;
+    background-attachment: fixed;
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1) translateY(0px);
+            transform: scale(1) translateY(0px);
+    background: url("../img/pattern.png");
+    background-position: center;
+    background-attachment: fixed;
+  }
+}
+
+@keyframes animate {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0) translateY(1000px);
+            transform: scale(0) translateY(1000px);
+  }
+
+  50% {
+    opacity: 1;
+    background: url("../img/pattern.png");
+    background-position: center;
+    background-attachment: fixed;
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1) translateY(0px);
+            transform: scale(1) translateY(0px);
+    background: url("../img/pattern.png");
+    background-position: center;
+    background-attachment: fixed;
+  }
+}
+
 @media screen and (min-width: 1350px) {
   .hero_img_watch img {
     height: 1150px;
@@ -865,6 +1098,30 @@ body.popup_open {
 
   .hero_img_watch img {
     top: -90px;
+  }
+
+  .carpets .carpets_background .blocks.animated,
+  .animated .carpets .carpets_background .blocks {
+    -webkit-animation: none;
+            animation: none;
+  }
+
+  .carpets .carpets_background .blocks:nth-child(even) {
+    -webkit-animation: none;
+            animation: none;
+  }
+
+  .carpets .carpets_background .blocks:nth-child(odd) {
+    -webkit-animation: none;
+            animation: none;
+  }
+
+  .carpets .carpets_background {
+    -webkit-animation: none;
+            animation: none;
+    background: url("../img/pattern.png");
+    background-position: center;
+    background-attachment: fixed;
   }
 
   .footer_container {
