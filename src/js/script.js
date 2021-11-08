@@ -7,36 +7,37 @@ const form = document.querySelector("form");
 const inputs = document.querySelectorAll(".input");
 const popup_btn = document.querySelector(".popup__button");
 const order_btn = document.querySelector(".book_now");
-const burger = document.querySelector('.icon_menu');
-const menu = document.querySelector('.watch_and_book');
+const burger = document.querySelector(".icon_menu");
+const menu = document.querySelector(".watch_and_book");
 const close_on_mobile = document.querySelector(".close_on_mobile");
+const carpets_background = document.querySelector(".carpets_background");
+const blocks = document.querySelectorAll(".blocks");
 
 popup_body.addEventListener("click", closePopup);
-order_btn.addEventListener('click', openPopup);
+order_btn.addEventListener("click", openPopup);
 popup_btn.addEventListener("click", closePopup);
-form.addEventListener('input', checkInput);
+form.addEventListener("input", checkInput);
 close_on_mobile.addEventListener("click", closePopup);
 
-burger.addEventListener('click', (e)=>{
-  burger.classList.toggle('active');
-  menu.classList.toggle('active');
-  if(burger.classList.contains('active')){
+burger.addEventListener("click", (e) => {
+  burger.classList.toggle("active");
+  menu.classList.toggle("active");
+  if (burger.classList.contains("active")) {
     body.style.position = "fixed";
     body.style.overflowY = "scroll";
-  }else{
+  } else {
     body.style.position = "static";
     body.style.overflowY = "visible";
   }
-  });
+});
 
 function checkInput() {
-
   let disabled = false;
 
-  for(let i of inputs){
+  for (let i of inputs) {
     console.log(i);
     const res = validateData(i);
-    if(!res){
+    if (!res) {
       disabled = true;
       break;
     }
@@ -47,11 +48,11 @@ function checkInput() {
   } else {
     popup_btn.removeAttribute("disabled");
   }
-};
+}
 
-function openPopup(){
+function openPopup() {
   burger.classList.remove("active");
-  menu.classList.remove('active');
+  menu.classList.remove("active");
   popup.classList.add("open");
   popup_btn.setAttribute("disabled", "disabled");
   document.body.style.position = "fixed";
@@ -82,13 +83,14 @@ function validateData(input) {
       validated = false;
     }
   }
-    return validated;
+  return validated;
 }
 
 function isEmail(email) {
-  return (/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+  return /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
     email
-  ))}
+  );
+}
 
 function isSuccess(input) {
   const formControl = input.parentElement;
@@ -102,7 +104,7 @@ function isSuccess(input) {
 function isError(input, message) {
   const formControl = input.parentElement;
   const small = formControl.querySelector("small");
-  
+
   if (formControl.classList.contains("success")) {
     formControl.classList.remove("success");
   }
@@ -111,8 +113,7 @@ function isError(input, message) {
   formControl.classList.add("error");
 }
 
-
-function closePopup () {
+function closePopup() {
   inputs.forEach(function (input) {
     input.value = "";
     const formControl = input.parentElement;
@@ -133,39 +134,89 @@ function closePopup () {
   popup_btn.removeAttribute("disabled");
 }
 
+const swiper = new Swiper(".swiper", {
+  // Optional parameters
+  direction: "horizontal",
+  loop: true,
+  grabCursor: true,
+  speed: 950,
 
-const swiper = new Swiper('.swiper', {
-    // Optional parameters
-    direction: 'horizontal',
-    loop: true,
-    grabCursor: true,
-    speed: 950,
- 
-    freeMode: {
-     enabled: true,
-     sticky: true,
-   },
-    
-    breakpoints: {
-       // when window width is >= 320px
-       320: {
-         slidesPerView: 1,
-       },
-       // when window width is >= 605px
-       605: {
-         slidesPerView: 1,
-       },
-       // when window width is >= 993px
-       993: {
-         slidesPerView: 1,
-         spaceBetween: 30,
-     }
+  freeMode: {
+    enabled: true,
+    sticky: true,
+  },
+
+  breakpoints: {
+    // when window width is >= 320px
+    320: {
+      slidesPerView: 1,
     },
-
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      dynamicBullets: true,
+    // when window width is >= 605px
+    605: {
+      slidesPerView: 1,
     },
+    // when window width is >= 993px
+    993: {
+      slidesPerView: 1,
+      spaceBetween: 30,
+    },
+  },
 
-  });
+  pagination: {
+    el: ".swiper-pagination",
+    type: "bullets",
+    dynamicBullets: true,
+  },
+});
+
+const animItems = document.querySelectorAll(".anim_item");
+
+if (animItems.length > 0) {
+  window.addEventListener("scroll", animOnScroll);
+  setTimeout(() => {
+    animOnScroll();
+  }, 500);
+}
+
+function animOnScroll() {
+  for (let i = 0; i < animItems.length; i++) {
+    let anim_item = animItems[i];
+    const animItemHeight = anim_item.offsetHeight;
+    const animItemOffset = offset(anim_item).top;
+    const animStart = 4;
+
+    let animItemPoint = window.innerHeight - animItemHeight / animStart;
+
+    if (animItemHeight > window.innerHeight) {
+      animItemPoint = window.innerHeight - window.innerHeight / animStart;
+    }
+
+    if (
+      pageYOffset > animItemOffset - animItemPoint &&
+      pageYOffset < animItemOffset + animItemHeight
+    ) {
+      anim_item.classList.add("animated");
+    } else {
+      if (!anim_item.classList.contains("anim_no_hide")) {
+        anim_item.classList.remove("animated");
+      }
+    }
+  }
+}
+
+function offset(el) {
+  const rect = el.getBoundingClientRect();
+  const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  return {
+    top: rect.top + scrollTop,
+    left: rect.left + scrollLeft,
+  };
+}
+
+for (let i = 1; i < 500; i++) {
+  const block = document.createElement("div");
+  block.classList.add("blocks");
+  carpets_background.appendChild(block);
+  block.style.animationDelay = `${i * 0.05}s`;
+}

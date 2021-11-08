@@ -212,6 +212,13 @@ p {
     padding: 3px 15px 2px 15px;
     margin-top: 13px;
     z-index: 20;
+    transition: all 0.8s ease-in-out 0.2s;
+
+    &:hover {
+      outline: 1px solid $white;
+      background-color: $black;
+      color: $white;
+    }
 
     @media screen and (max-width: $breakpoint-tablet) {
       margin-top: 23px;
@@ -243,6 +250,7 @@ p {
       height: 2px;
       border-radius: 10px;
       background-color: $white;
+
       &:first-child {
         top: 0px;
       }
@@ -289,17 +297,42 @@ p {
   & .section_cnt_header {
     font-size: calc(18px + (35 - 18) * ((100vw - 320px) / (1920 - 320)));
     line-height: calc(22px + (42 - 22) * ((100vw - 320px) / (1920 - 320)));
+    opacity: 0;
+
+    &.animated,
+    .animated & {
+      animation-duration: 1.2s;
+      animation-name: slideInRight;
+      opacity: 1;
+    }
   }
 
   & .hero_sct-paragraph {
     font-size: calc(14px + (20 - 14) * ((100vw - 320px) / (1920 - 320)));
     line-height: calc(16px + (30 - 16) * ((100vw - 320px) / (1920 - 320)));
+    transform: translateX(-300px);
+    opacity: 0;
+    transition: all 1.2s ease-in-out 0.3s;
+
+    &.animated {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
 
 .stripe {
   width: 3px;
   height: auto;
+  transform: translateX(-300px);
+  opacity: 0;
+  transition: all 1.5s ease-in-out 0.8s;
+
+  &.animated,
+  .animated & {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 .victory_watch_stripe {
   background-color: #001521;
@@ -324,6 +357,14 @@ p {
   background-position: left bottom;
   background-size: contain;
   background-repeat: no-repeat;
+  transform: translateX(-300px);
+  opacity: 0;
+  transition: all 1.2s ease-in-out 0.3s;
+
+  &.animated {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
   @media screen and (max-width: 1500px) {
     height: 78px;
@@ -336,7 +377,15 @@ p {
 
 .hero_img_watch {
   flex: 0 1 45%;
-   position: relative;
+  position: relative;
+  opacity: 0;
+
+  &.animated,
+  .animated & {
+    animation-duration: 8.5s;
+    animation-name: fadeIn;
+    opacity: 1;
+  }
 }
 
 .hero_img_watch img {
@@ -352,7 +401,7 @@ p {
   @media screen and (min-width: 1800px) {
     height: 1500px;
   }
-  
+
   @media screen and (min-width: 1600px) {
     height: 1300px;
   }
@@ -382,47 +431,107 @@ p {
   }
 }
 
+.sct-paragraph {
+  font-size: calc(14px + (20 - 14) * ((100vw - 320px) / (1920 - 320)));
+  line-height: calc(16px + (30 - 16) * ((100vw - 320px) / (1920 - 320)));
+  transform: translateX(-300px);
+  opacity: 0;
+  transition: all 1.2s ease-in-out 0.3s;
+
+  &.animated {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .carpets {
-  background: url("../img/pattern.png") bottom center no-repeat;
-  background-size: cover;
-  width: 100%;
+  position: relative;
+  height: 300px;
   padding-top: calc(20px + (91 - 10) * ((100vw - 320px) / (1920 - 320)));
   padding-bottom: calc(30px + (101 - 10) * ((100vw - 320px) / (1920 - 320)));
 
+  & .carpets_background {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+
+    & .blocks {
+      position: relative;
+      display: block;
+      width: 2vw;
+      height: 8vh;
+
+      &.animated,
+      .animated & {
+        animation: fillIn 0.75s ease-in-out forwards;
+
+        @media screen and (max-width: $breakpoint-tablet) {
+          animation: none;
+        }
+      }
+
+      &:nth-child(even) {
+        animation: fillIn 0.8s ease-in-out forwards;
+        @media screen and (max-width: $breakpoint-tablet) {
+          animation: none;
+        }
+      }
+      &:nth-child(odd) {
+        animation: fillIn 1s ease-in-out forwards;
+        @media screen and (max-width: $breakpoint-tablet) {
+          animation: none;
+        }
+      }
+    }
+    @media screen and (max-width: $breakpoint-tablet) {
+      animation: none;
+      background: url("../img/pattern.png");
+      background-position: center;
+      background-attachment: fixed;
+    }
+  }
+
   & .carpets_container {
+    position: relative;
     width: 70%;
+    height: 100%;
+    z-index: 25;
   }
 
   & .section_cnt {
+    position: absolute;
     justify-content: flex-end;
     margin-bottom: 0;
   }
 
-  & .section_cnt_header {
+  & .carpets_section_cnt_header {
     font-size: calc(18px + (35 - 18) * ((100vw - 320px) / (1920 - 320)));
     line-height: calc(22px + (42 - 22) * ((100vw - 320px) / (1920 - 320)));
-  }
 
-  & h2 {
-    margin-left: -2px;
+    & h2 {
+      color: $white;
+      margin-left: -2px;
+    }
   }
 
   & .text {
     flex: 0 1 90%;
-
-    & .sct-paragraph {
-      word-wrap: break-word;
-      margin-top: calc(10px + (27 - 10) * ((100vw - 320px) / (1920 - 320)));
-      width: 85%;
-    }
   }
-}
-
-.sct-paragraph {
-  font-size: 30px;
-  line-height: 36px;
-  font-size: calc(14px + (20 - 14) * ((100vw - 320px) / (1920 - 320)));
-  line-height: calc(16px + (30 - 16) * ((100vw - 320px) / (1920 - 320)));
+  & .carpets_sct-paragraph {
+    word-wrap: break-word;
+    font-size: calc(14px + (20 - 14) * ((100vw - 320px) / (1920 - 320)));
+    line-height: calc(16px + (30 - 16) * ((100vw - 320px) / (1920 - 320)));
+    margin-top: calc(10px + (27 - 10) * ((100vw - 320px) / (1920 - 320)));
+    width: 85%;
+  }
 }
 
 .karabakh {
@@ -431,6 +540,12 @@ p {
     left: -50px;
     @include div-same-size-as-background-img("../img/watch1.png", 1344, 896);
     margin-bottom: calc(30px + (101 - 30) * ((100vw - 320px) / (1920 - 320)));
+    opacity: 0;
+    transition: opacity 5.5s ease-in-out;
+
+    &.animated {
+      opacity: 1;
+    }
   }
 
   & .img-btt {
@@ -546,10 +661,17 @@ p {
 
   & .watch_conception_img {
     @include div-same-size-as-background-img(
-      "../img/wristband1.png",
+      "../img/wristband.png",
       1908,
       608
     );
+
+    &.animated,
+    .animated & {
+      animation-duration: 10.5s;
+      animation-name: fadeIn;
+      opacity: 1;
+    }
   }
 }
 
@@ -590,7 +712,17 @@ p {
     }
 
     & a {
+      display: inline-block;
       color: $white;
+      transition: all 0.4s ease-in-out;
+
+      &:hover {
+        transform: scale(1.05);
+
+        @media screen and (max-width: $breakpoint-tablet) {
+          transform: none;
+        }
+      }
     }
 
     @media screen and (max-width: $breakpoint-tablet) {
@@ -670,15 +802,14 @@ p {
       border-radius: 10px;
       background-color: $white;
       &:first-child {
-          transform: rotate(-45deg);
-          top: calc(50% - 1px);
+        transform: rotate(-45deg);
+        top: calc(50% - 1px);
       }
       &:last-child {
-          transform: rotate(45deg);
-          bottom: calc(50% - 1px);
+        transform: rotate(45deg);
+        bottom: calc(50% - 1px);
       }
     }
-    
   }
 }
 
@@ -777,4 +908,46 @@ small {
 body.popup_open {
   overflow-y: hidden;
   padding-right: 15px;
+}
+
+@keyframes slideInRight {
+  0% {
+    transform: translate3d(-200px, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fillIn {
+  0% {
+    opacity: 0;
+    transform: scale(0) translateY(1000px);
+  }
+
+  50% {
+    opacity: 1;
+    background: url("../img/pattern.png");
+    background-position: center;
+    background-attachment: fixed;
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0px);
+    background: url("../img/pattern.png");
+    background-position: center;
+    background-attachment: fixed;
+  }
 }
