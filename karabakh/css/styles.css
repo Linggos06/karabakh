@@ -364,6 +364,25 @@ p {
   min-width: 100%;
 }
 
+.sct-paragraph {
+  font-size: calc(14px + 6 * (100vw - 320px) / 1600);
+  line-height: calc(16px + 14 * (100vw - 320px) / 1600);
+  -webkit-transform: translateX(-300px);
+      -ms-transform: translateX(-300px);
+          transform: translateX(-300px);
+  opacity: 0;
+  -webkit-transition: all 1.2s ease-in-out 0.3s;
+  -o-transition: all 1.2s ease-in-out 0.3s;
+  transition: all 1.2s ease-in-out 0.3s;
+}
+
+.sct-paragraph.animated {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+}
+
 .carpets {
   position: relative;
   height: 300px;
@@ -399,18 +418,18 @@ p {
 
 .carpets .carpets_background .blocks.animated,
 .animated .carpets .carpets_background .blocks {
-  -webkit-animation: animate 0.75s ease-in-out forwards;
-          animation: animate 0.75s ease-in-out forwards;
+  -webkit-animation: fillIn 0.75s ease-in-out forwards;
+          animation: fillIn 0.75s ease-in-out forwards;
 }
 
 .carpets .carpets_background .blocks:nth-child(even) {
-  -webkit-animation: animate 0.8s ease-in-out forwards;
-          animation: animate 0.8s ease-in-out forwards;
+  -webkit-animation: fillIn 0.8s ease-in-out forwards;
+          animation: fillIn 0.8s ease-in-out forwards;
 }
 
 .carpets .carpets_background .blocks:nth-child(odd) {
-  -webkit-animation: animate 1s ease-in-out forwards;
-          animation: animate 1s ease-in-out forwards;
+  -webkit-animation: fillIn 1s ease-in-out forwards;
+          animation: fillIn 1s ease-in-out forwards;
 }
 
 .carpets .carpets_container {
@@ -444,17 +463,12 @@ p {
           flex: 0 1 90%;
 }
 
-.carpets .text .sct-paragraph {
+.carpets .carpets_sct-paragraph {
   word-wrap: break-word;
-  margin-top: calc(10px + 17 * (100vw - 320px) / 1600);
-  width: 85%;
-}
-
-.sct-paragraph {
-  font-size: 30px;
-  line-height: 36px;
   font-size: calc(14px + 6 * (100vw - 320px) / 1600);
   line-height: calc(16px + 14 * (100vw - 320px) / 1600);
+  margin-top: calc(10px + 17 * (100vw - 320px) / 1600);
+  width: 85%;
 }
 
 .karabakh .karabakh_sct_img {
@@ -885,7 +899,7 @@ body.popup_open {
   }
 }
 
-@-webkit-keyframes animate {
+@-webkit-keyframes fillIn {
   0% {
     opacity: 0;
     -webkit-transform: scale(0) translateY(1000px);
@@ -909,7 +923,7 @@ body.popup_open {
   }
 }
 
-@keyframes animate {
+@keyframes fillIn {
   0% {
     opacity: 0;
     -webkit-transform: scale(0) translateY(1000px);
@@ -1130,6 +1144,12 @@ body.popup_open {
 
   .footer_container {
     padding-left: 40px;
+  }
+
+  .footer_menu a:hover {
+    -webkit-transform: none;
+        -ms-transform: none;
+            transform: none;
   }
 
   .footer_menu {
