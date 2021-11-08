@@ -164,8 +164,8 @@ p {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-flex: 0;
-      -ms-flex: 0 1 50%;
-          flex: 0 1 50%;
+      -ms-flex: 0 0 60%;
+          flex: 0 0 60%;
   height: 100%;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -177,6 +177,59 @@ p {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
+}
+
+.header .watch_and_book .links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 241.33px;
+}
+
+.header .watch_and_book .watches_links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-bottom: 10px;
+}
+
+.header .watch_and_book .links a,
+.header .watch_and_book .fab {
+  display: block;
+  width: 32px;
+  height: 32px;
+}
+
+.header .watch_and_book .fa-facebook-square {
+  background: url("../img/facebook.png") center no-repeat;
+  background-size: cover;
+}
+
+.header .watch_and_book .fa-instagram {
+  position: relative;
+  bottom: -1px;
+  background: url("../img/instagram.png") center no-repeat;
+}
+
+.header .watch_and_book .design_links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 96%;
 }
 
 .header .links p {
@@ -238,35 +291,11 @@ p {
 .section_cnt .section_cnt_header {
   font-size: calc(18px + 17 * (100vw - 320px) / 1600);
   line-height: calc(22px + 20 * (100vw - 320px) / 1600);
-  opacity: 0;
-}
-
-.section_cnt .section_cnt_header.animated,
-.animated .section_cnt .section_cnt_header {
-  -webkit-animation-duration: 1.2s;
-          animation-duration: 1.2s;
-  -webkit-animation-name: slideInRight;
-          animation-name: slideInRight;
-  opacity: 1;
 }
 
 .section_cnt .hero_sct-paragraph {
   font-size: calc(14px + 6 * (100vw - 320px) / 1600);
   line-height: calc(16px + 14 * (100vw - 320px) / 1600);
-  -webkit-transform: translateX(-300px);
-      -ms-transform: translateX(-300px);
-          transform: translateX(-300px);
-  opacity: 0;
-  -webkit-transition: all 1.2s ease-in-out 0.3s;
-  -o-transition: all 1.2s ease-in-out 0.3s;
-  transition: all 1.2s ease-in-out 0.3s;
-}
-
-.section_cnt .hero_sct-paragraph.animated {
-  opacity: 1;
-  -webkit-transform: translateY(0);
-      -ms-transform: translateY(0);
-          transform: translateY(0);
 }
 
 .stripe {
@@ -276,9 +305,9 @@ p {
       -ms-transform: translateX(-300px);
           transform: translateX(-300px);
   opacity: 0;
-  -webkit-transition: all 1.5s ease-in-out 0.8s;
-  -o-transition: all 1.5s ease-in-out 0.8s;
-  transition: all 1.5s ease-in-out 0.8s;
+  -webkit-transition: all 1.5s ease-in-out 1.3s;
+  -o-transition: all 1.5s ease-in-out 1.3s;
+  transition: all 1.5s ease-in-out 1.3s;
 }
 
 .stripe.animated,
@@ -293,13 +322,59 @@ p {
   background-color: #001521;
 }
 
-.text {
+.hero_text {
   -webkit-box-flex: 0;
       -ms-flex: 0 1 86%;
           flex: 0 1 86%;
+  -webkit-transform: translateX(-300px);
+      -ms-transform: translateX(-300px);
+          transform: translateX(-300px);
+  opacity: 0;
+  -webkit-transition: all 1.2s ease-in-out;
+  -o-transition: all 1.2s ease-in-out;
+  transition: all 1.2s ease-in-out;
 }
 
-.text p {
+.hero_text.text1 {
+  -webkit-transition-delay: 0.3s;
+       -o-transition-delay: 0.3s;
+          transition-delay: 0.3s;
+}
+
+.hero_text.text2 {
+  -webkit-transition-delay: 0.9s;
+       -o-transition-delay: 0.9s;
+          transition-delay: 0.9s;
+}
+
+.hero_text.text3 {
+  -webkit-transition-delay: 1.5s;
+       -o-transition-delay: 1.5s;
+          transition-delay: 1.5s;
+}
+
+.hero_text.text1.animated {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+}
+
+.hero_text.text2.animated {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+}
+
+.hero_text.text3.animated {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+}
+
+.hero_text p {
   word-wrap: break-word;
   margin-top: calc(10px + 17 * (100vw - 320px) / 1600);
 }
@@ -367,9 +442,9 @@ p {
 .sct-paragraph {
   font-size: calc(14px + 6 * (100vw - 320px) / 1600);
   line-height: calc(16px + 14 * (100vw - 320px) / 1600);
-  -webkit-transform: translateX(-300px);
-      -ms-transform: translateX(-300px);
-          transform: translateX(-300px);
+  -webkit-transform: translateX(-200px);
+      -ms-transform: translateX(-200px);
+          transform: translateX(-200px);
   opacity: 0;
   -webkit-transition: all 1.2s ease-in-out 0.3s;
   -o-transition: all 1.2s ease-in-out 0.3s;
@@ -383,64 +458,30 @@ p {
           transform: translateY(0);
 }
 
-.carpets {
-  position: relative;
-  height: 300px;
-  padding-top: calc(20px + 81 * (100vw - 320px) / 1600);
-  padding-bottom: calc(30px + 91 * (100vw - 320px) / 1600);
-}
-
 .carpets .carpets_background {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 100%;
+  background-image: url("../img/pattern.png");
+  background-size: cover;
+  background-position: bottom center;
+  background-repeat: no-repeat;
   width: 100%;
-  overflow: hidden;
+  height: 100%;
+  padding-top: calc(40px + 101 * (100vw - 320px) / 1600);
+  padding-bottom: calc(50px + 151 * (100vw - 320px) / 1600);
+  opacity: 0;
+  -webkit-transition: opacity 3.9s ease-in-out;
+  -o-transition: opacity 3.9s ease-in-out;
+  transition: opacity 3.9s ease-in-out;
 }
 
-.carpets .carpets_background .blocks {
-  position: relative;
-  display: block;
-  width: 2vw;
-  height: 8vh;
-}
-
-.carpets .carpets_background .blocks.animated,
-.animated .carpets .carpets_background .blocks {
-  -webkit-animation: fillIn 0.75s ease-in-out forwards;
-          animation: fillIn 0.75s ease-in-out forwards;
-}
-
-.carpets .carpets_background .blocks:nth-child(even) {
-  -webkit-animation: fillIn 0.8s ease-in-out forwards;
-          animation: fillIn 0.8s ease-in-out forwards;
-}
-
-.carpets .carpets_background .blocks:nth-child(odd) {
-  -webkit-animation: fillIn 1s ease-in-out forwards;
-          animation: fillIn 1s ease-in-out forwards;
+.carpets .carpets_background.animated {
+  opacity: 1;
 }
 
 .carpets .carpets_container {
-  position: relative;
   width: 70%;
-  height: 100%;
-  z-index: 25;
 }
 
 .carpets .section_cnt {
-  position: absolute;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
@@ -483,9 +524,9 @@ p {
   padding-top: 66.6666666667%;
   margin-bottom: calc(30px + 71 * (100vw - 320px) / 1600);
   opacity: 0;
-  -webkit-transition: opacity 5.5s ease-in-out;
-  -o-transition: opacity 5.5s ease-in-out;
-  transition: opacity 5.5s ease-in-out;
+  -webkit-transition: opacity 6.5s ease-in-out;
+  -o-transition: opacity 6.5s ease-in-out;
+  transition: opacity 6.5s ease-in-out;
 }
 
 .karabakh .karabakh_sct_img.animated {
@@ -500,6 +541,7 @@ p {
   width: 100%;
   height: 0;
   padding-top: 66.7117726658%;
+  left: -20px;
 }
 
 .karabakh .section_cnt {
@@ -583,14 +625,16 @@ p {
   background-color: #ffffff;
 }
 
-.video_ {
-  background-image: url("../img/video_sample.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+.swiper-button-prev {
+  color: #dfdbdb;
+}
+
+.swiper-button-next {
+  color: #dfdbdb;
+}
+
+.video_item {
   width: 100%;
-  height: 0;
-  padding-top: 66.6666666667%;
 }
 
 .watch_conception .section_cnt {
@@ -899,57 +943,15 @@ body.popup_open {
   }
 }
 
-@-webkit-keyframes fillIn {
-  0% {
-    opacity: 0;
-    -webkit-transform: scale(0) translateY(1000px);
-            transform: scale(0) translateY(1000px);
-  }
-
-  50% {
-    opacity: 1;
-    background: url("../img/pattern.png");
-    background-position: center;
-    background-attachment: fixed;
-  }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: scale(1) translateY(0px);
-            transform: scale(1) translateY(0px);
-    background: url("../img/pattern.png");
-    background-position: center;
-    background-attachment: fixed;
-  }
-}
-
-@keyframes fillIn {
-  0% {
-    opacity: 0;
-    -webkit-transform: scale(0) translateY(1000px);
-            transform: scale(0) translateY(1000px);
-  }
-
-  50% {
-    opacity: 1;
-    background: url("../img/pattern.png");
-    background-position: center;
-    background-attachment: fixed;
-  }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: scale(1) translateY(0px);
-            transform: scale(1) translateY(0px);
-    background: url("../img/pattern.png");
-    background-position: center;
-    background-attachment: fixed;
-  }
-}
-
 @media screen and (min-width: 1350px) {
   .hero_img_watch img {
     height: 1150px;
+  }
+}
+
+@media screen and (min-width: 1390px) {
+  .header .watch_and_book .links {
+    width: 271.33px;
   }
 }
 
@@ -1022,6 +1024,10 @@ body.popup_open {
 @media screen and (max-width: 780px) {
   .header .header_container {
     width: 50%;
+  }
+
+  .header .watch_and_book .links {
+    width: 227.66px;
   }
 
   .header .watch_and_book {
@@ -1118,28 +1124,8 @@ body.popup_open {
     top: -90px;
   }
 
-  .carpets .carpets_background .blocks.animated,
-  .animated .carpets .carpets_background .blocks {
-    -webkit-animation: none;
-            animation: none;
-  }
-
-  .carpets .carpets_background .blocks:nth-child(even) {
-    -webkit-animation: none;
-            animation: none;
-  }
-
-  .carpets .carpets_background .blocks:nth-child(odd) {
-    -webkit-animation: none;
-            animation: none;
-  }
-
   .carpets .carpets_background {
-    -webkit-animation: none;
-            animation: none;
-    background: url("../img/pattern.png");
-    background-position: center;
-    background-attachment: fixed;
+    opacity: 1;
   }
 
   .footer_container {
@@ -1195,6 +1181,18 @@ body.popup_open {
         -ms-transform: rotate(45deg);
             transform: rotate(45deg);
     bottom: calc(50% - 1px);
+  }
+}
+
+@media screen and (max-width: 780px) and (max-width: 553px) {
+  .header .watch_and_book.active {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 780px) and (max-width: 400px) {
+  .header .watch_and_book.active {
+    width: 90%;
   }
 }
 

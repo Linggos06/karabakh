@@ -10,8 +10,7 @@ const order_btn = document.querySelector(".book_now");
 const burger = document.querySelector(".icon_menu");
 const menu = document.querySelector(".watch_and_book");
 const close_on_mobile = document.querySelector(".close_on_mobile");
-const carpets_background = document.querySelector(".carpets_background");
-const blocks = document.querySelectorAll(".blocks");
+
 
 popup_body.addEventListener("click", closePopup);
 order_btn.addEventListener("click", openPopup);
@@ -146,6 +145,12 @@ const swiper = new Swiper(".swiper", {
     sticky: true,
   },
 
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+
   breakpoints: {
     // when window width is >= 320px
     320: {
@@ -214,9 +219,3 @@ function offset(el) {
   };
 }
 
-for (let i = 1; i < 500; i++) {
-  const block = document.createElement("div");
-  block.classList.add("blocks");
-  carpets_background.appendChild(block);
-  block.style.animationDelay = `${i * 0.05}s`;
-}

@@ -9,7 +9,8 @@ const path = {
     js: project_folder + "/js/",
     img: project_folder + "/img/",
     fonts: project_folder + "/fonts/",
-    swiper: project_folder + "/swiper/"
+    swiper: project_folder + "/swiper/",
+    videos: project_folder + "/videos/",
   },
   src: {
     html: [source_folder + "/*.html", "!" + source_folder + "/_*.html"],
@@ -17,14 +18,16 @@ const path = {
     js: source_folder + "/js/*.js",
     img: source_folder + "/img/**/*.{jpg,png,svg,gif,ico,webp}",
     fonts: source_folder + "/fonts/*.ttf",
-    swiper: source_folder + "/swiper/**/*"
+    swiper: source_folder + "/swiper/**/*",
+    videos: source_folder + "/videos/*.mp4",
   },
   watch: {
     html: source_folder + "/**/*.html",
     css: source_folder + "/scss/**/*.scss",
     js: source_folder + "/js/**/*.js",
     img: source_folder + "/img/**/*.{jpg,png,svg,gif,ico,webp}",
-    swiper: source_folder + "/swiper/**/*"
+    swiper: source_folder + "/swiper/**/*",
+    videos: source_folder + "/videos/**/*.mp4",
   },
   clean: "./" + project_folder + "/"
 }
@@ -67,6 +70,12 @@ function html() {
 function swiper() {
   return src(path.src.swiper)
   .pipe(dest(path.build.swiper))
+  .pipe(browsersync.stream());
+}
+
+function videos() {
+  return src(path.src.videos)
+  .pipe(dest(path.build.videos))
   .pipe(browsersync.stream());
 }
 
@@ -175,7 +184,7 @@ function deleteDist () {
 return del(path.clean);
 }
 
-const build = gulp.series(deleteDist, gulp.parallel(js, css, html, images, fonts, swiper), gulp.parallel(fontsStyle, browserSync));
+const build = gulp.series(deleteDist, gulp.parallel(js, css, html, images, fonts, swiper, videos), gulp.parallel(fontsStyle, browserSync));
 const watch = gulp.parallel(build, watchFiles);
 
 exports.fontsStyle = fontsStyle;
@@ -185,6 +194,7 @@ exports.js = js;
 exports.css = css;
 exports.html = html;
 exports.swiper = swiper;
+exports.videos = videos;
 exports.build = build;
 exports.watch = watch;
 exports.default = watch;

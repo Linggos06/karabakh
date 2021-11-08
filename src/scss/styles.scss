@@ -166,11 +166,54 @@ p {
 
   & .watch_and_book {
     display: flex;
-    flex: 0 1 50%;
+    flex: 0 0 60%;
     height: 100%;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      width: 241.33px;
+
+      @media screen and (min-width: 1390px) {
+        width: 271.33px;
+      }
+
+      @media screen and (max-width: $breakpoint-tablet) {
+        width: 227.66px;
+      }
+    }
+
+    .watches_links {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-around;
+
+      margin-bottom: 10px;
+    }
+    .links a,
+    .fab {
+      display: block;
+      width: 32px;
+      height: 32px;
+    }
+    .fa-facebook-square {
+      background: url("../img/facebook.png") center no-repeat;
+      background-size: cover;
+    }
+    .fa-instagram {
+      position: relative;
+      bottom: -1px;
+      background: url("../img/instagram.png") center no-repeat;
+    }
+    .design_links {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-around;
+      width: 96%;
+    }
 
     @media screen and (max-width: 1500px) {
       flex: 0 1 50%;
@@ -196,6 +239,12 @@ p {
       &.active {
         align-items: center;
         left: 0;
+        @media screen and (max-width: 553px) {
+          width: 70%;
+        }
+        @media screen and (max-width: 400px) {
+          width: 90%;
+        }
       }
     }
   }
@@ -297,27 +346,11 @@ p {
   & .section_cnt_header {
     font-size: calc(18px + (35 - 18) * ((100vw - 320px) / (1920 - 320)));
     line-height: calc(22px + (42 - 22) * ((100vw - 320px) / (1920 - 320)));
-    opacity: 0;
-
-    &.animated,
-    .animated & {
-      animation-duration: 1.2s;
-      animation-name: slideInRight;
-      opacity: 1;
-    }
   }
 
   & .hero_sct-paragraph {
     font-size: calc(14px + (20 - 14) * ((100vw - 320px) / (1920 - 320)));
     line-height: calc(16px + (30 - 16) * ((100vw - 320px) / (1920 - 320)));
-    transform: translateX(-300px);
-    opacity: 0;
-    transition: all 1.2s ease-in-out 0.3s;
-
-    &.animated {
-      opacity: 1;
-      transform: translateY(0);
-    }
   }
 }
 
@@ -326,7 +359,7 @@ p {
   height: auto;
   transform: translateX(-300px);
   opacity: 0;
-  transition: all 1.5s ease-in-out 0.8s;
+  transition: all 1.5s ease-in-out 1.3s;
 
   &.animated,
   .animated & {
@@ -338,8 +371,38 @@ p {
   background-color: #001521;
 }
 
-.text {
+.hero_text {
   flex: 0 1 86%;
+  transform: translateX(-300px);
+  opacity: 0;
+  transition: all 1.2s ease-in-out;
+
+  &.text1 {
+    transition-delay: 0.3s;
+  }
+
+  &.text2 {
+    transition-delay: 0.9s;
+  }
+
+  &.text3 {
+    transition-delay: 1.5s;
+  }
+
+  &.text1.animated {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &.text2.animated {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &.text3.animated {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
   & p {
     word-wrap: break-word;
@@ -434,7 +497,7 @@ p {
 .sct-paragraph {
   font-size: calc(14px + (20 - 14) * ((100vw - 320px) / (1920 - 320)));
   line-height: calc(16px + (30 - 16) * ((100vw - 320px) / (1920 - 320)));
-  transform: translateX(-300px);
+  transform: translateX(-200px);
   opacity: 0;
   transition: all 1.2s ease-in-out 0.3s;
 
@@ -445,69 +508,31 @@ p {
 }
 
 .carpets {
-  position: relative;
-  height: 300px;
-  padding-top: calc(20px + (91 - 10) * ((100vw - 320px) / (1920 - 320)));
-  padding-bottom: calc(30px + (101 - 10) * ((100vw - 320px) / (1920 - 320)));
-
   & .carpets_background {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 100%;
+    background-image: url("../img/pattern.png");
+    background-size: cover;
+    background-position: bottom center;
+    background-repeat: no-repeat;
     width: 100%;
-    overflow: hidden;
+    height: 100%;
+    padding-top: calc(40px + (141 - 40) * ((100vw - 320px) / (1920 - 320)));
+    padding-bottom: calc(50px + (201 - 50) * ((100vw - 320px) / (1920 - 320)));
+    opacity: 0;
+    transition: opacity 3.9s ease-in-out;
 
-    & .blocks {
-      position: relative;
-      display: block;
-      width: 2vw;
-      height: 8vh;
-
-      &.animated,
-      .animated & {
-        animation: fillIn 0.75s ease-in-out forwards;
-
-        @media screen and (max-width: $breakpoint-tablet) {
-          animation: none;
-        }
-      }
-
-      &:nth-child(even) {
-        animation: fillIn 0.8s ease-in-out forwards;
-        @media screen and (max-width: $breakpoint-tablet) {
-          animation: none;
-        }
-      }
-      &:nth-child(odd) {
-        animation: fillIn 1s ease-in-out forwards;
-        @media screen and (max-width: $breakpoint-tablet) {
-          animation: none;
-        }
-      }
+    &.animated {
+      opacity: 1;
     }
     @media screen and (max-width: $breakpoint-tablet) {
-      animation: none;
-      background: url("../img/pattern.png");
-      background-position: center;
-      background-attachment: fixed;
+      opacity: 1;
     }
   }
 
   & .carpets_container {
-    position: relative;
     width: 70%;
-    height: 100%;
-    z-index: 25;
   }
 
   & .section_cnt {
-    position: absolute;
     justify-content: flex-end;
     margin-bottom: 0;
   }
@@ -541,7 +566,7 @@ p {
     @include div-same-size-as-background-img("../img/watch1.png", 1344, 896);
     margin-bottom: calc(30px + (101 - 30) * ((100vw - 320px) / (1920 - 320)));
     opacity: 0;
-    transition: opacity 5.5s ease-in-out;
+    transition: opacity 6.5s ease-in-out;
 
     &.animated {
       opacity: 1;
@@ -550,6 +575,7 @@ p {
 
   & .img-btt {
     @include div-same-size-as-background-img("../img/watch2.png", 1478, 986);
+    left: -20px;
   }
 
   & .section_cnt {
@@ -630,12 +656,15 @@ p {
   background-color: $white;
 }
 
-.video_ {
-  @include div-same-size-as-background-img(
-    "../img/video_sample.jpg",
-    1920,
-    1280
-  );
+.swiper-button-prev {
+  color: rgb(223, 219, 219);
+}
+.swiper-button-next {
+  color: rgb(223, 219, 219);
+}
+
+.video_item {
+  width: 100%;
 }
 
 .watch_conception {
@@ -660,11 +689,7 @@ p {
   }
 
   & .watch_conception_img {
-    @include div-same-size-as-background-img(
-      "../img/wristband.png",
-      1908,
-      608
-    );
+    @include div-same-size-as-background-img("../img/wristband.png", 1908, 608);
 
     &.animated,
     .animated & {
@@ -927,27 +952,5 @@ body.popup_open {
 
   100% {
     opacity: 1;
-  }
-}
-
-@keyframes fillIn {
-  0% {
-    opacity: 0;
-    transform: scale(0) translateY(1000px);
-  }
-
-  50% {
-    opacity: 1;
-    background: url("../img/pattern.png");
-    background-position: center;
-    background-attachment: fixed;
-  }
-
-  100% {
-    opacity: 1;
-    transform: scale(1) translateY(0px);
-    background: url("../img/pattern.png");
-    background-position: center;
-    background-attachment: fixed;
   }
 }
