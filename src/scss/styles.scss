@@ -446,11 +446,13 @@ p {
 
   & .carpets_background {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
+    bottom: 0;
     height: 100%;
     width: 100%;
     overflow: hidden;
@@ -459,8 +461,8 @@ p {
     & .blocks {
       position: relative;
       display: block;
-      width: 3vw;
-      height: 3vw;
+      width: 2vw;
+      height: 8vh;
 
       &.animated,
       .animated &

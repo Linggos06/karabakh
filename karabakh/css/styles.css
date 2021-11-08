@@ -375,12 +375,16 @@ p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
+  bottom: 0;
   height: 100%;
   width: 100%;
   overflow: hidden;
@@ -389,8 +393,8 @@ p {
 .carpets .carpets_background .blocks {
   position: relative;
   display: block;
-  width: 3vw;
-  height: 3vw;
+  width: 2vw;
+  height: 8vh;
 }
 
 .carpets .carpets_background .blocks.animated,
