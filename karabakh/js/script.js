@@ -15,21 +15,21 @@ var form = document.querySelector("form");
 var inputs = document.querySelectorAll(".input");
 var popup_btn = document.querySelector(".popup__button");
 var order_btn = document.querySelector(".book_now");
-var burger = document.querySelector('.icon_menu');
-var menu = document.querySelector('.watch_and_book');
+var burger = document.querySelector(".icon_menu");
+var menu = document.querySelector(".watch_and_book");
 var close_on_mobile = document.querySelector(".close_on_mobile");
 var carpets_background = document.querySelector(".carpets_background");
 var blocks = document.querySelectorAll(".blocks");
 popup_body.addEventListener("click", closePopup);
-order_btn.addEventListener('click', openPopup);
+order_btn.addEventListener("click", openPopup);
 popup_btn.addEventListener("click", closePopup);
-form.addEventListener('input', checkInput);
+form.addEventListener("input", checkInput);
 close_on_mobile.addEventListener("click", closePopup);
-burger.addEventListener('click', function (e) {
-  burger.classList.toggle('active');
-  menu.classList.toggle('active');
+burger.addEventListener("click", function (e) {
+  burger.classList.toggle("active");
+  menu.classList.toggle("active");
 
-  if (burger.classList.contains('active')) {
+  if (burger.classList.contains("active")) {
     body.style.position = "fixed";
     body.style.overflowY = "scroll";
   } else {
@@ -68,11 +68,9 @@ function checkInput() {
   }
 }
 
-;
-
 function openPopup() {
   burger.classList.remove("active");
-  menu.classList.remove('active');
+  menu.classList.remove("active");
   popup.classList.add("open");
   popup_btn.setAttribute("disabled", "disabled");
   document.body.style.position = "fixed";
@@ -158,9 +156,9 @@ function closePopup() {
   popup_btn.removeAttribute("disabled");
 }
 
-var swiper = new Swiper('.swiper', {
+var swiper = new Swiper(".swiper", {
   // Optional parameters
-  direction: 'horizontal',
+  direction: "horizontal",
   loop: true,
   grabCursor: true,
   speed: 950,
@@ -184,8 +182,8 @@ var swiper = new Swiper('.swiper', {
     }
   },
   pagination: {
-    el: '.swiper-pagination',
-    type: 'bullets',
+    el: ".swiper-pagination",
+    type: "bullets",
     dynamicBullets: true
   }
 });
@@ -231,8 +229,8 @@ function offset(el) {
 }
 
 for (var i = 1; i < 500; i++) {
-  var block = document.createElement('div');
-  block.classList.add('blocks');
+  var block = document.createElement("div");
+  block.classList.add("blocks");
   carpets_background.appendChild(block);
   block.style.animationDelay = "".concat(i * 0.05, "s");
 }
