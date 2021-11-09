@@ -10,7 +10,7 @@ const order_btn = document.querySelector(".book_now");
 const burger = document.querySelector(".icon_menu");
 const menu = document.querySelector(".watch_and_book");
 const close_on_mobile = document.querySelector(".close_on_mobile");
-const section_3 = document.querySelector(".section_cnt3");
+const current_year = document.querySelector(".year");
 
 
 popup_body.addEventListener("click", closePopup);
@@ -30,6 +30,8 @@ burger.addEventListener("click", (e) => {
     body.style.overflowY = "visible";
   }
 });
+
+current_year.textContent = new Date().getFullYear();
 
 function checkInput() {
   let disabled = false;
