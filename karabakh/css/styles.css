@@ -301,9 +301,9 @@ p {
 .stripe {
   width: 3px;
   height: auto;
-  -webkit-transform: translateX(-300px);
-      -ms-transform: translateX(-300px);
-          transform: translateX(-300px);
+  -webkit-transform: translateX(-120%);
+      -ms-transform: translateX(-120%);
+          transform: translateX(-120%);
   opacity: 0;
   -webkit-transition: all 1.5s ease-in-out 1.3s;
   -o-transition: all 1.5s ease-in-out 1.3s;
@@ -313,9 +313,9 @@ p {
 .stripe.animated,
 .animated .stripe {
   opacity: 1;
-  -webkit-transform: translateY(0);
-      -ms-transform: translateY(0);
-          transform: translateY(0);
+  -webkit-transform: translateX(0);
+      -ms-transform: translateX(0);
+          transform: translateX(0);
 }
 
 .victory_watch_stripe {
@@ -355,23 +355,23 @@ p {
 
 .hero_text.text1.animated {
   opacity: 1;
-  -webkit-transform: translateY(0);
-      -ms-transform: translateY(0);
-          transform: translateY(0);
+  -webkit-transform: translateX(0);
+      -ms-transform: translateX(0);
+          transform: translateX(0);
 }
 
 .hero_text.text2.animated {
   opacity: 1;
-  -webkit-transform: translateY(0);
-      -ms-transform: translateY(0);
-          transform: translateY(0);
+  -webkit-transform: translateX(0);
+      -ms-transform: translateX(0);
+          transform: translateX(0);
 }
 
 .hero_text.text3.animated {
   opacity: 1;
-  -webkit-transform: translateY(0);
-      -ms-transform: translateY(0);
-          transform: translateY(0);
+  -webkit-transform: translateX(0);
+      -ms-transform: translateX(0);
+          transform: translateX(0);
 }
 
 .hero_text p {
@@ -428,9 +428,9 @@ p {
 .sct-paragraph {
   font-size: calc(14px + 6 * (100vw - 320px) / 1600);
   line-height: calc(16px + 14 * (100vw - 320px) / 1600);
-  -webkit-transform: translateX(-200px);
-      -ms-transform: translateX(-200px);
-          transform: translateX(-200px);
+  -webkit-transform: translateX(-120%);
+      -ms-transform: translateX(-120%);
+          transform: translateX(-120%);
   opacity: 0;
   -webkit-transition: all 1.2s ease-in-out 0.3s;
   -o-transition: all 1.2s ease-in-out 0.3s;
@@ -439,9 +439,9 @@ p {
 
 .sct-paragraph.animated {
   opacity: 1;
-  -webkit-transform: translateY(0);
-      -ms-transform: translateY(0);
-          transform: translateY(0);
+  -webkit-transform: translateX(0);
+      -ms-transform: translateX(0);
+          transform: translateX(0);
 }
 
 .carpets .carpets_background {

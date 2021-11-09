@@ -357,14 +357,14 @@ p {
 .stripe {
   width: 3px;
   height: auto;
-  transform: translateX(-300px);
+  transform: translateX(-120%);
   opacity: 0;
   transition: all 1.5s ease-in-out 1.3s;
 
   &.animated,
   .animated & {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
   }
 }
 .victory_watch_stripe {
@@ -391,17 +391,17 @@ p {
 
   &.text1.animated {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
   }
 
   &.text2.animated {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
   }
 
   &.text3.animated {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
   }
 
   & p {
@@ -489,13 +489,13 @@ p {
 .sct-paragraph {
   font-size: calc(14px + (20 - 14) * ((100vw - 320px) / (1920 - 320)));
   line-height: calc(16px + (30 - 16) * ((100vw - 320px) / (1920 - 320)));
-  transform: translateX(-200px);
+  transform: translateX(-120%);
   opacity: 0;
   transition: all 1.2s ease-in-out 0.3s;
 
   &.animated {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
   }
 }
 
