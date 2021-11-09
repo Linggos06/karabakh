@@ -373,20 +373,20 @@ p {
 
 .hero_text {
   flex: 0 1 86%;
-  transform: translateX(-300px);
+  transform: translateX(-120%);
   opacity: 0;
   transition: all 1.2s ease-in-out;
 
   &.text1 {
-    transition-delay: 0.3s;
+    transition-delay: 0s;
   }
 
   &.text2 {
-    transition-delay: 0.9s;
+    transition-delay: 0.5s;
   }
 
   &.text3 {
-    transition-delay: 1.5s;
+    transition-delay: 1s;
   }
 
   &.text1.animated {
@@ -411,7 +411,7 @@ p {
 }
 
 .limited_edition_stripe {
-  background-color: #b91f1f;
+  background-color: #581717;
 }
 
 .limited_edition_img {
@@ -420,14 +420,6 @@ p {
   background-position: left bottom;
   background-size: contain;
   background-repeat: no-repeat;
-  transform: translateX(-300px);
-  opacity: 0;
-  transition: all 1.2s ease-in-out 0.3s;
-
-  &.animated {
-    opacity: 1;
-    transform: translateY(0);
-  }
 
   @media screen and (max-width: 1500px) {
     height: 78px;
@@ -566,7 +558,7 @@ p {
     @include div-same-size-as-background-img("../img/watch1.png", 1344, 896);
     margin-bottom: calc(30px + (101 - 30) * ((100vw - 320px) / (1920 - 320)));
     opacity: 0;
-    transition: opacity 6.5s ease-in-out;
+    transition: opacity 5.5s ease-in-out;
 
     &.animated {
       opacity: 1;
@@ -690,9 +682,8 @@ p {
 
   & .watch_conception_img {
     @include div-same-size-as-background-img("../img/wristband.png", 1908, 608);
-
-    &.animated,
-    .animated & {
+     opacity: 0;
+    &.animated {
       animation-duration: 10.5s;
       animation-name: fadeIn;
       opacity: 1;

@@ -10,6 +10,7 @@ const order_btn = document.querySelector(".book_now");
 const burger = document.querySelector(".icon_menu");
 const menu = document.querySelector(".watch_and_book");
 const close_on_mobile = document.querySelector(".close_on_mobile");
+const section_3 = document.querySelector(".section_cnt3");
 
 
 popup_body.addEventListener("click", closePopup);

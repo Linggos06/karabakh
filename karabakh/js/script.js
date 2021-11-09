@@ -18,6 +18,7 @@ var order_btn = document.querySelector(".book_now");
 var burger = document.querySelector(".icon_menu");
 var menu = document.querySelector(".watch_and_book");
 var close_on_mobile = document.querySelector(".close_on_mobile");
+var section_3 = document.querySelector(".section_cnt3");
 popup_body.addEventListener("click", closePopup);
 order_btn.addEventListener("click", openPopup);
 popup_btn.addEventListener("click", closePopup);
