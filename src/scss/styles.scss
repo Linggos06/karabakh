@@ -682,7 +682,7 @@ p {
 
   & .watch_conception_img {
     @include div-same-size-as-background-img("../img/wristband.png", 1908, 608);
-     opacity: 0;
+    opacity: 0;
     &.animated {
       animation-duration: 10.5s;
       animation-name: fadeIn;
