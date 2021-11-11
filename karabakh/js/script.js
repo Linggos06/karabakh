@@ -7,6 +7,7 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 var body = document.querySelector("body");
+var header = document.querySelector(".header");
 var popup = document.querySelector(".popup");
 var popup_body = document.querySelector(".popup__body");
 var popContent = document.querySelector(".popup__content ");
@@ -18,8 +19,7 @@ var order_btn = document.querySelector(".book_now");
 var burger = document.querySelector(".icon_menu");
 var menu = document.querySelector(".watch_and_book");
 var close_on_mobile = document.querySelector(".close_on_mobile");
-var carpets_background = document.querySelector(".carpets_background");
-var blocks = document.querySelectorAll(".blocks");
+var current_year = document.querySelector(".year");
 popup_body.addEventListener("click", closePopup);
 order_btn.addEventListener("click", openPopup);
 popup_btn.addEventListener("click", closePopup);
@@ -37,6 +37,7 @@ burger.addEventListener("click", function (e) {
     body.style.overflowY = "visible";
   }
 });
+current_year.textContent = new Date().getFullYear();
 
 function checkInput() {
   var disabled = false;
@@ -166,6 +167,10 @@ var swiper = new Swiper(".swiper", {
     enabled: true,
     sticky: true
   },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
+  },
   breakpoints: {
     // when window width is >= 320px
     320: {
@@ -209,6 +214,10 @@ function animOnScroll() {
     }
 
     if (pageYOffset > animItemOffset - animItemPoint && pageYOffset < animItemOffset + animItemHeight) {
+      if (!isInViewport(header) && anim_item.classList.contains("text3")) {
+        anim_item.style.transitionDelay = "0.3s";
+      }
+
       anim_item.classList.add("animated");
     } else {
       if (!anim_item.classList.contains("anim_no_hide")) {
@@ -228,9 +237,7 @@ function offset(el) {
   };
 }
 
-for (var i = 1; i < 500; i++) {
-  var block = document.createElement("div");
-  block.classList.add("blocks");
-  carpets_background.appendChild(block);
-  block.style.animationDelay = "".concat(i * 0.05, "s");
+function isInViewport(element) {
+  var rect = element.getBoundingClientRect();
+  return rect.top >= 0 && rect.left >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && rect.right <= (window.innerWidth || document.documentElement.clientWidth);
 }
