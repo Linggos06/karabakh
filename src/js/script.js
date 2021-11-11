@@ -1,4 +1,5 @@
 const body = document.querySelector("body");
+const header = document.querySelector(".header");
 const popup = document.querySelector(".popup");
 const popup_body = document.querySelector(".popup__body");
 const popContent = document.querySelector(".popup__content ");
@@ -203,6 +204,9 @@ function animOnScroll() {
       pageYOffset > animItemOffset - animItemPoint &&
       pageYOffset < animItemOffset + animItemHeight
     ) {
+      if(!isInViewport(header) && anim_item.classList.contains("text3")){
+       anim_item.style.transitionDelay = "0.3s";
+      }
       anim_item.classList.add("animated");
     } else {
       if (!anim_item.classList.contains("anim_no_hide")) {
@@ -220,5 +224,15 @@ function offset(el) {
     top: rect.top + scrollTop,
     left: rect.left + scrollLeft,
   };
+}
+
+function isInViewport(element) {
+  const rect = element.getBoundingClientRect();
+  return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+  );
 }
 
